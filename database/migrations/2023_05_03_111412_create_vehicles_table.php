@@ -22,7 +22,7 @@ class CreateVehiclesTable extends Migration
             $table->string('bodywork');
             $table->string('serialNumber')->nullable();
             $table->string('bodyworkNumber')->nullable();
-            $table->string('energy');
+            $table->foreignId('energy');
 
             $table->integer('sitePlace');
             $table->string('vin')->nullable();

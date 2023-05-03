@@ -9,5 +9,22 @@ class Driver extends Model
 {
     use HasFactory;
 
-    
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

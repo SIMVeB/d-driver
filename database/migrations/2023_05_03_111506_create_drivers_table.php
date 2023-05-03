@@ -49,3 +49,9 @@ class CreateDriversTable extends Migration
         Schema::dropIfExists('drivers');
     }
 }
+
+
+
+
+
+

@@ -14,7 +14,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //
+        $vehicles = Vehicle::all();
+        return view('vehicles.index', compact('vehicles'));
     }
 
     /**
@@ -24,7 +25,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        return view('vehicles.create');
     }
 
     /**
@@ -35,7 +36,30 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+        'genre'=> 'required|string',
+        'manufacturer'=> 'required|string',
+        'chassis'=> 'required|string',
+        'bodywork'=> 'required|string',
+        'serialNumber'=> 'required|string',
+        'bodyworkNumber'=> 'required|string',
+        'energy'=> 'required|string',
+        'sitePlace'=> 'required|integer',
+        'vin'=> 'required|string',
+        'usageState'=> 'required|string',
+        'power'=> 'required|string',
+        'registrationDate'=> 'required|date',
+        'firstUseDate'=> 'required|date',
+        'dateOfManufacturer'=> 'required|date',
+        'glassType'=> 'required|string',
+        'frontShape'=> 'required|string',
+        'backShape'=> 'required|string',
+        ]);
+
+        $vehicle = Vehicle::create($request);
+
+        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec
+        succès');
     }
 
     /**
@@ -46,7 +70,7 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        //
+        return view('vehicles.detail', compact('vehicle', ));
     }
 
     /**
@@ -57,7 +81,7 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        return view('vehicles.edit', compact('vehicle'));
     }
 
     /**
@@ -69,7 +93,32 @@ class VehicleController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        $this->validate($request,[
+        'genre'=> 'required|string',
+        'manufacturer'=> 'required|string',
+        'chassis'=> 'required|string',
+        'bodywork'=> 'required|string',
+        'serialNumber'=> 'required|string',
+        'bodyworkNumber'=> 'required|string',
+        'energy'=> 'required|string',
+        'sitePlace'=> 'required|integer',
+        'vin'=> 'required|string',
+        'usageState'=> 'required|string',
+        'power'=> 'required|string',
+        'registrationDate'=> 'required|date',
+        'firstUseDate'=> 'required|date',
+        'dateOfManufacturer'=> 'required|date',
+        'glassType'=> 'required|string',
+        'frontShape'=> 'required|string',
+        'backShape'=> 'required|string',
+        ]);
+
+        $vehicle = Vehicle::find($id);
+
+        $vehicle->update($request);
+
+        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec
+        succès');
     }
 
     /**
@@ -80,6 +129,8 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
-        //
+        Vehicle::find( $id)->delete();
+        return redirect()->route('vehicles.index')->with('success', 'Vehicle supprimée avec
+        succès');
     }
 }

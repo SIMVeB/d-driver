@@ -14,7 +14,8 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //
+        $drivers = Driver::all();
+        return view('drivers.index', compact('drivers'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        //
+        return view('drivers.create');
     }
 
     /**
@@ -35,7 +36,29 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+        [
+            'name'=> 'required|string',
+            'gender'=> 'required|boolean',
+            'birthDate'=> 'required|date',
+            'birthPlace'=> 'required|string',
+            'profession'=> 'required|string',
+            'personality'=> 'required|string',
+            'email'=> 'required|email',
+            'phoneNumber'=> 'required|string',
+            'passport'=> 'required|string',
+            'zip'=> 'required|string',
+            'nif'=> 'required|string',
+            'address'=> 'required|string',
+            'village'=> 'required|string',
+            'commune'=> 'required|string',
+            'region'=> 'required|string',
+        ]);
+
+        $driver = Driver::create($request);
+
+        return redirect()->route('drivers.index')->with('success', 'Drivers enregistrée avec
+        succès');
     }
 
     /**
@@ -46,7 +69,8 @@ class DriverController extends Controller
      */
     public function show(Driver $driver)
     {
-        //
+        return view('drivers.detail', compact('driver', ));
+
     }
 
     /**
@@ -57,7 +81,7 @@ class DriverController extends Controller
      */
     public function edit(Driver $driver)
     {
-        //
+        return view('drivers.edit', compact('driver'));
     }
 
     /**
@@ -69,7 +93,29 @@ class DriverController extends Controller
      */
     public function update(Request $request, Driver $driver)
     {
-        //
+        $this->validate($request,[
+        'name'=> 'required|string',
+        'gender'=> 'required|boolean',
+        'birthDate'=> 'required|date',
+        'birthPlace'=> 'required|string',
+        'profession'=> 'required|string',
+        'personality'=> 'required|string',
+        'email'=> 'required|email',
+        'phoneNumber'=> 'required|string',
+        'passport'=> 'required|string',
+        'zip'=> 'required|string',
+        'nif'=> 'required|string',
+        'address'=> 'required|string',
+        'village'=> 'required|string',
+        'commune'=> 'required|string',
+        'region'=> 'required|string',
+        ]);
+
+        $driver = Driver::find($id);
+
+        $driver->update($request);
+
+        return redirect()->route('drivers.index')->with('success', 'Drivers enregistrée avec succès');
     }
 
     /**
@@ -80,6 +126,7 @@ class DriverController extends Controller
      */
     public function destroy(Driver $driver)
     {
-        //
+        Driver::find( $id)->delete();
+        return redirect()->route('drivers.index')->with('success', 'Driver supprimée avec succès');
     }
 }
