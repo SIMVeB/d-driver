@@ -58,8 +58,7 @@ class VehicleController extends Controller
 
         $vehicle = Vehicle::create($request);
 
-        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec
-        succès');
+        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec succès');
     }
 
     /**
@@ -116,9 +115,7 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($id);
 
         $vehicle->update($request);
-
-        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec
-        succès');
+        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec succès');
     }
 
     /**
@@ -129,8 +126,7 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
-        Vehicle::find( $id)->delete();
-        return redirect()->route('vehicles.index')->with('success', 'Vehicle supprimée avec
-        succès');
+        $vehicle->delete();
+        return redirect()->route('vehicles.index')->with('success', 'Vehicle supprimée avec succès');
     }
 }

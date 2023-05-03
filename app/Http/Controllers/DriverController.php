@@ -57,8 +57,7 @@ class DriverController extends Controller
 
         $driver = Driver::create($request);
 
-        return redirect()->route('drivers.index')->with('success', 'Drivers enregistrée avec
-        succès');
+        return redirect()->route('drivers.index')->with('success', 'Drivers enregistrée avec succès');
     }
 
     /**
@@ -126,7 +125,7 @@ class DriverController extends Controller
      */
     public function destroy(Driver $driver)
     {
-        Driver::find( $id)->delete();
+        $driver->delete();
         return redirect()->route('drivers.index')->with('success', 'Driver supprimée avec succès');
     }
 }

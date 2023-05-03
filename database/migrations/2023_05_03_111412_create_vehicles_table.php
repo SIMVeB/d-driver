@@ -36,6 +36,15 @@ class CreateVehiclesTable extends Migration
             $table->string('frontShape');
             $table->string('backShape');
 
+            $table->foreignId('owner_id')->nullable()
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreignId('driver_id')->nullable()
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
 
             $table->timestamps();
         });

@@ -111,7 +111,6 @@ class OwnerController extends Controller
         'region'=> 'required|string',
         ]);
 
-        $owner = Owner::find($id);
 
         $owner->update($request);
 
@@ -126,7 +125,7 @@ class OwnerController extends Controller
      */
     public function destroy(Owner $owner)
     {
-        Owner::find( $id)->delete();
+        $owner->delete();
         return redirect()->route('owners.index')->with('success', 'Owner supprimée avec succès');
     }
 }
