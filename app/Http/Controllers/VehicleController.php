@@ -36,13 +36,14 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+
+        $data=    $request->validate([
         'genre'=> 'required|string',
         'manufacturer'=> 'required|string',
         'chassis'=> 'required|string',
         'bodywork'=> 'required|string',
         'serialNumber'=> 'required|string',
-        'bodyworkNumber'=> 'required|string',
+        'bodyworkColor'=> 'required|string',
         'energy'=> 'required|string',
         'sitePlace'=> 'required|integer',
         'vin'=> 'required|string',
@@ -55,11 +56,12 @@ class VehicleController extends Controller
         'glassType'=> 'required|string',
         'frontShape'=> 'required|string',
         'backShape'=> 'required|string',
+        'airConditioner'=> 'required|string',
         ]);
 
-        $vehicle = Vehicle::create($request);
+        $vehicle = Vehicle::create($data);
 
-        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec succès');
+        return view('layouts.owner', compact('vehicle', ));
     }
 
     /**

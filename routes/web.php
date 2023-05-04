@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VehicleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,4 @@ Route::get('driver', function () {
     return view('layouts.driver');
 })->name('driver');
 
-
+Route::post('vehicle-store', [VehicleController::class, 'store'])->name('vehicle-store');

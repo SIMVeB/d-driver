@@ -31,7 +31,7 @@ class CreateVehiclesTable extends Migration
             $table->string('vin')->nullable()->nullable();
             $table->string('usageState')->nullable();
             $table->string('power')->nullable();
-            $table->boolean('airConditioner')->default(false);
+            $table->string('airConditioner')->default("non");
 
 
             $table->date('registrationDate')->nullable();

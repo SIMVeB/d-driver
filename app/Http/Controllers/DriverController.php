@@ -130,3 +130,6 @@ class DriverController extends Controller
         return redirect()->route('drivers.index')->with('success', 'Driver supprimée avec succès');
     }
 }
+
+
+
