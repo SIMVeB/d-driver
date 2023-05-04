@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Driver;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
@@ -36,10 +37,10 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,
-        [
+
+        $data= $request->validate([
             'name'=> 'required|string',
-            'gender'=> 'required|boolean',
+            'gender'=> 'required|string',
             'birthDate'=> 'required|date',
             'birthPlace'=> 'required|string',
             'email'=> 'required|email',
@@ -53,11 +54,21 @@ class DriverController extends Controller
             'commune'=> 'required|string',
             'region'=> 'required|string',
             'permis'=> 'required|string',
+            'vehicle_id'=> 'required|numeric|min:1',
+            'owner_id'=> 'required|numeric|min:1'
+
+
         ]);
 
-        $driver = Driver::create($request);
+        $vehicle = Vehicle::find($data["vehicle_id"]);
 
-        return redirect()->route('drivers.index')->with('success', 'Drivers enregistrée avec succès');
+        $driver = Driver::create($data);
+
+        $vehicle->driver_id = $driver->id ;
+
+        $vehicle->save();
+
+        return redirect()->route('home')->with('success', 'Les informations sont enrégistrées avec succès');
     }
 
     /**
@@ -92,7 +103,7 @@ class DriverController extends Controller
      */
     public function update(Request $request, Driver $driver)
     {
-        $this->validate($request,[
+        $data= $request->validate([
         'name'=> 'required|string',
         'gender'=> 'required|boolean',
         'birthDate'=> 'required|date',
@@ -110,6 +121,14 @@ class DriverController extends Controller
         'permis'=> 'required|string',
 
         ]);
+
+        $vehicle = Vehicle::find($data["vehicle_id"]);
+
+        $owner = Owner::create($data);
+
+        $vehicle->owner_id = $owner->id ;
+
+        $vehicle->save();
 
         $driver = Driver::find($id);
 
@@ -130,6 +149,3 @@ class DriverController extends Controller
         return redirect()->route('drivers.index')->with('success', 'Driver supprimée avec succès');
     }
 }
-
-
-
