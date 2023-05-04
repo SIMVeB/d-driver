@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\OwnerController;
+
+
 
 
 /*
@@ -32,3 +36,5 @@ Route::get('driver', function () {
 })->name('driver');
 
 Route::post('vehicle-store', [VehicleController::class, 'store'])->name('vehicle-store');
+Route::post('owner-store', [OwnerController::class, 'store'])->name('owner-store');
+Route::post('driver-store', [DriverController::class, 'store'])->name('driver-store');

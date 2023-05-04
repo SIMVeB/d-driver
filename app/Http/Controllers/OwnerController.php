@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Owner;
+use App\Models\Vehicle;
+
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -37,31 +39,36 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,
-        [
-            
-        'name'=> 'required|string',
-        'gender'=> 'required|boolean',
-        'birthDate'=> 'required|date',
-        'birthPlace'=> 'required|string',
-        'profession'=> 'required|string',
-        'personality'=> 'required|string',
-        'email'=> 'required|email',
-        'phoneNumber'=> 'required|string',
-        'passport'=> 'required|string',
-        'zip'=> 'required|string',
-        'nif'=> 'required|string',
-        'address'=> 'required|string',
-        'village'=> 'required|string',
-        'commune'=> 'required|string',
-        'region'=> 'required|string',
-        'district'=> 'required|string',
+        $data= $request->validate([
+            'name'=> 'required|string',
+            'gender'=> 'required|string',
+            'birthDate'=> 'required|date',
+            'birthPlace'=> 'required|string',
+            'profession'=> 'required|string',
+            'personality'=> 'required|string',
+            'email'=> 'required|email',
+            'phoneNumber'=> 'required|string',
+            'passport'=> 'required|string',
+            'zip'=> 'required|string',
+            'nif'=> 'required|string',
+            'address'=> 'required|string',
+            'village'=> 'required|string',
+            'commune'=> 'required|string',
+            'region'=> 'required|string',
+            'district'=> 'required|string',
+            'vehicle_id'=> 'required|numeric|min:1'
 
         ]);
 
-        $owner = Owner::create($request);
+        $vehicle = Vehicle::find($data["vehicle_id"]);
 
-        return redirect()->route('owners.index')->with('success', 'Owners enregistrée avec succès');
+        $owner = Owner::create($data);
+
+        $vehicle->owner_id = $owner->id ;
+
+        $vehicle->save();
+
+        return redirect()->route('driver')->with(['vehicle' => $vehicle, 'owner' => $owner]);
     }
 
     /**

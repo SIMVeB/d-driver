@@ -23,15 +23,15 @@ class CreateOwnersTable extends Migration
             $table->string('profession')->nullable();
             $table->string('personality')->nullable();
 
-            $table->foreignId('email')->nullable();
+            $table->string('email')->nullable();
             $table->string('phoneNumber')->nullable();
             $table->string('passport')->nullable();
             $table->string('zip')->nullable();
             $table->string('nif')->nullable();
 
-            $table->foreignId('address')->nullable();
-            $table->foreignId('district')->nullable();
-            $table->integer('village')->nullable();
+            $table->string('address')->nullable();
+            $table->string('district')->nullable();
+            $table->string('village')->nullable();
             $table->string('commune')->nullable();
             $table->string('region')->nullable();
 

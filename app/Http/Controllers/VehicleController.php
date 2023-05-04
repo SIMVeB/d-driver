@@ -61,7 +61,8 @@ class VehicleController extends Controller
 
         $vehicle = Vehicle::create($data);
 
-        return view('layouts.owner', compact('vehicle', ));
+        return redirect()->route('owner')->with(['vehicle' => $vehicle] );
+
     }
 
     /**
