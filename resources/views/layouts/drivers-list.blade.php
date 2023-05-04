@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
     <!-- ======= Side Section ======= -->
-  <section id="side" class="d-flex align-items-center">
+  <section id="side" class="d-flex align-items-center ">
     <div class="container">
       <div class="row">
         <nav aria-label="breadcrumb">
