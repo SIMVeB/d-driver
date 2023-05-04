@@ -30,6 +30,7 @@ class CreateOwnersTable extends Migration
             $table->string('nif')->nullable();
 
             $table->foreignId('address')->nullable();
+            $table->foreignId('district')->nullable();
             $table->integer('village')->nullable();
             $table->string('commune')->nullable();
             $table->string('region')->nullable();

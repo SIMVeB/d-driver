@@ -13,28 +13,33 @@ class CreateVehiclesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
 
-            $table->string('genre');
-            $table->string('manufacturer');
+            $table->string('genre')->nullable();
+            $table->string('manufacturer')->nullable();
             $table->string('chassis')->nullable();
-            $table->string('bodywork');
+            $table->string('bodywork')->nullable();
             $table->string('serialNumber')->nullable();
-            $table->string('bodyworkNumber')->nullable();
-            $table->foreignId('energy');
+            $table->string('bodyworkColor')->nullable();
+            $table->string('energy')->nullable();
+            $table->string('type')->nullable();
 
-            $table->integer('sitePlace');
-            $table->string('vin')->nullable();
+
+            $table->integer('sitePlace')->nullable();
+            $table->string('vin')->nullable()->nullable();
             $table->string('usageState')->nullable();
-            $table->string('power');
+            $table->string('power')->nullable();
+            $table->boolean('airConditioner')->default(false);
 
-            $table->date('registrationDate');
+
+            $table->date('registrationDate')->nullable();
+            $table->date('circulationDate')->nullable();
             $table->date('firstUseDate')->nullable();
-            $table->date('dateOfManufacturer')->nullable();
             $table->string('glassType')->nullable();
-            $table->string('frontShape');
-            $table->string('backShape');
+            $table->string('frontShape')->nullable();
+            $table->string('backShape')->nullable();
 
             $table->foreignId('owner_id')->nullable()
             ->constrained()
@@ -48,6 +53,7 @@ class CreateVehiclesTable extends Migration
 
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

@@ -42,17 +42,17 @@ class DriverController extends Controller
             'gender'=> 'required|boolean',
             'birthDate'=> 'required|date',
             'birthPlace'=> 'required|string',
-            'profession'=> 'required|string',
-            'personality'=> 'required|string',
             'email'=> 'required|email',
             'phoneNumber'=> 'required|string',
             'passport'=> 'required|string',
             'zip'=> 'required|string',
             'nif'=> 'required|string',
             'address'=> 'required|string',
+            'district'=> 'required|string',
             'village'=> 'required|string',
             'commune'=> 'required|string',
             'region'=> 'required|string',
+            'permis'=> 'required|string',
         ]);
 
         $driver = Driver::create($request);
@@ -97,17 +97,18 @@ class DriverController extends Controller
         'gender'=> 'required|boolean',
         'birthDate'=> 'required|date',
         'birthPlace'=> 'required|string',
-        'profession'=> 'required|string',
-        'personality'=> 'required|string',
         'email'=> 'required|email',
         'phoneNumber'=> 'required|string',
         'passport'=> 'required|string',
         'zip'=> 'required|string',
         'nif'=> 'required|string',
         'address'=> 'required|string',
+        'district'=> 'required|string',
         'village'=> 'required|string',
         'commune'=> 'required|string',
         'region'=> 'required|string',
+        'permis'=> 'required|string',
+
         ]);
 
         $driver = Driver::find($id);

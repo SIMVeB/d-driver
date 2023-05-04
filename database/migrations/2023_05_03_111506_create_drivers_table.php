@@ -20,8 +20,6 @@ class CreateDriversTable extends Migration
             $table->string('gender');
             $table->date('birthDate')->nullable();
             $table->string('birthPlace');
-            $table->string('profession')->nullable();
-            $table->string('personality')->nullable();
 
             $table->string('email');
             $table->string('phoneNumber');
@@ -29,10 +27,13 @@ class CreateDriversTable extends Migration
             $table->string('zip')->nullable();
             $table->string('nif')->nullable();
 
+            $table->string('district')->nullable();
             $table->string('address');
             $table->string('village');
             $table->string('commune')->nullable();
             $table->string('region')->nullable();
+            $table->string('permis')->nullable();
+
 
 
             $table->timestamps();
@@ -49,9 +50,3 @@ class CreateDriversTable extends Migration
         Schema::dropIfExists('drivers');
     }
 }
-
-
-
-
-
-
