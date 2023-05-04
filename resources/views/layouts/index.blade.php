@@ -51,13 +51,12 @@
           <h2>FAQs</h2>
         </div>
         <div class="row">
-          {{-- <i class="fa-solid fa-user"></i> --}}
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="faq-list">
               <ul>
                 <li data-aos="fade-up">
-                  <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Question 1 ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse" data-bs-target="#faq-list-1" class="collapsed">Question 1 ? <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-up icon-close"></i></a>
                   <div id="faq-list-1" class="collapse" data-bs-parent=".faq-list">
                     <p>
                       Réponse 1
@@ -66,7 +65,7 @@
                 </li>
     
                 <li data-aos="fade-up">
-                  <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Question 2 ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Question 2 ? <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-up icon-close"></i></a>
                   <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                     <p>
                       Réponse 2                     
@@ -75,7 +74,7 @@
                 </li>
     
                 <li data-aos="fade-up">
-                  <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Question 3 ?  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Question 3 ?  <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-up icon-close"></i></a>
                   <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                     <p>
                       Réponse 3
@@ -84,7 +83,7 @@
                 </li>
     
                 <li data-aos="fade-up">
-                  <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Question 4 ?  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Question 4 ?  <i class="fa-solid fa-chevron-down icon-show"></i><i class="fa-solid fa-chevron-up icon-close"></i></a>
                   <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
                     <p>
                       Réponse 4 

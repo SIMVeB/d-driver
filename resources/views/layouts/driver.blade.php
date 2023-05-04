@@ -25,7 +25,7 @@
   
           <div class="row content">
            <div class="row mb-3">
-            <h4 class="text-uppercase">Information sur le conducteur</h4>
+            <h4 class="text-uppercase">Information sur le conducteur <i class="fa-solid fa-user-tie"></i></h4>
            </div>
            <form action="">
                <div class="row justify-content-between">
@@ -99,8 +99,8 @@
                     </div>
                </div>
                <div class="d-flex justify-content-between mt-3">
-                <a href="{{ route('owner') }}" class="v-driver-btn-outline-primary">Etape précédente</a>
-                <button type="submit"  class="v-driver-btn-outline-primary">Sauvegerder</button>
+                <a href="{{ route('owner') }}" class="v-driver-btn-outline-primary"><i class="fa-solid fa-arrow-left-long"></i> Etape précédente</a>
+                <button type="submit"  class="v-driver-btn-outline-primary">Sauvegerder <i class="fa-solid fa-floppy-disk"></i></button>
               </div>
            </form>
           </div>

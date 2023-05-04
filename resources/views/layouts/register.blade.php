@@ -25,7 +25,7 @@
   
           <div class="row content">
            <div class="row mb-3">
-            <h4 class="text-uppercase">Information sur le véhicule</h4>
+            <h4 class="text-uppercase"> <i class="fa-solid fa-car-rear"></i> Information sur le véhicule</h4>
            </div>
            <form action="">
                <div class="row justify-content-between">
@@ -57,11 +57,32 @@
                             </div>
                             <div class="mb-3">
                                 <label for="bodyworkColor" class="form-label">Couleur carosserie :</label>
-                                <input type="text" name="bodyworkColor" class="form-control" id="bodyworkColor">
+                                <select class="form-select" name="bodyworkColor" id="bodyworkColor">
+                                    <option disabled selected>Selectionner une couleur de la carosserie</option>
+                                    <option value="Rouge">Rouge</option>
+                                    <option value="Gris">Gris</option>
+                                    <option value="Jaune">Jaune</option>
+                                    <option value="Vert">Vert</option>
+                                    <option value="Rouge">Rouge</option>
+                                    <option value="Bleu">Bleu</option>
+                                    <option value="Noir">Noir</option>
+                                    <option value="Multicolor">Multicolor</option>
+                                    <option value="Blanc">Blanc</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="energy" class="form-label">Energie :</label>
-                                <input type="text" name="energy" class="form-control" id="energy">
+                                <select class="form-select" name="energy" id="energy">
+                                    <option disabled selected>Selectionner une énergie</option>
+                                    <option value="Essence">Essence</option>
+                                    <option value="Hybride">Hybride</option>
+                                    <option value="Gazole">Gazole</option>
+                                    <option value="Electricité">Electricité</option>
+                                    <option value="Biocarburant">Biocarburant</option>
+                                    <option value="Solaire">Solaire</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="sitePlace" class="form-label">Place assises :</label>
@@ -85,7 +106,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="usageState" class="form-label">Etat véhicule :</label>
-                                <input type="text" name="usageState" class="form-control" id="usageState">
+                                <select class="form-select" name="usageState" id="usageState">
+                                    <option disabled selected>Selectionner l'état du véhicule</option>
+                                    <option value="new">Neuf</option>
+                                    <option value="old">Vieux</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="power" class="form-label">Puissance :</label>
@@ -131,7 +156,7 @@
                     </div>
                </div>
                <div class="d-flex justify-content-end mt-3">
-                <a href="{{ route('owner') }}" class="v-driver-btn-outline-primary">Etape suivante</a>
+                <a href="{{ route('owner') }}" class="v-driver-btn-outline-primary">Etape suivante <i class="fa-solid fa-arrow-right-long"></i></a>
                 {{-- <button type="button" href="{{ route('register') }}" class="v-driver-btn-outline-primary">Etape suivante</button> --}}
               </div>
            </form>
