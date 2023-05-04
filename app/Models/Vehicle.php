@@ -17,7 +17,7 @@ class Vehicle extends Model
         'chassis',
         'bodywork',
         'serialNumber',
-        'bodyworkNumber',
+        'bodyworkColor',
         'energy',
         'sitePlace',
         'vin',
