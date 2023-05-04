@@ -39,6 +39,7 @@ class OwnerController extends Controller
     {
         $this->validate($request,
         [
+            
         'name'=> 'required|string',
         'gender'=> 'required|boolean',
         'birthDate'=> 'required|date',
