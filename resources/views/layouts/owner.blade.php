@@ -189,10 +189,8 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between mt-3">
-                            <a href="{{ route('register') }}" class="v-driver-btn-outline-primary"><i
-                                    class="fa-solid fa-arrow-left-long"></i> Etape précédente</a>
-                            <button type="submit" class="v-driver-btn-outline-primary">Etape suivante <i
-                                    class="fa-solid fa-arrow-right-long"></i></button>
+                            <button type="button" onclick="history.back()" class="v-driver-btn-outline-primary"><i class="fa-solid fa-arrow-left-long"></i> Etape précédente</button>
+                            <button type="submit" class="v-driver-btn-outline-primary">Etape suivante <i class="fa-solid fa-arrow-right-long"></i></button>
                         </div>
                     </form>
                 </div>
