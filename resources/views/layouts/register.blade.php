@@ -92,8 +92,6 @@
                                         <select class="form-select @error('bodyworkColor') is-invalid @enderror"
                                             name="bodyworkColor" id="bodyworkColor">
                                             <option disabled selected>Selectionner une couleur de la carosserie</option>
-                                            <option value="Rouge" {{ old('bodyworkColor') == 'Rouge' ? 'selected' : '' }}>
-                                                Rouge</option>
                                             <option value="Gris" {{ old('bodyworkColor') == 'Gris' ? 'selected' : '' }}>
                                                 Gris</option>
                                             <option value="Jaune" {{ old('bodyworkColor') == 'Jaune' ? 'selected' : '' }}>
