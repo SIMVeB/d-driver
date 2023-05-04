@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Eras-Regular";
+    src: url("../font/eras-light-5871822a2e706.otf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Eras-Medium";
+    src: url("../font/eras-book-587181c4d21d4.otf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Eras-Bold";
+    src: url("../font/eras-bold-5871825645ec8.otf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Eras-SemiBold";
+    src: url("../font/eras-demi-587182767b329.otf") format("truetype");
+    font-display: swap;
+}
+
+.v-driver-fw-regular {
+    font-family: "Eras-Regular" !important;
+}
+.v-driver-fw-medium {
+    font-family: "Eras-Medium" !important;
+}
+.v-driver-fw-bold {
+    font-family: "Eras-Bold" !important;
+}
+.v-driver-fw-semi-bold {
+    font-family: "Eras-SemiBold" !important;
+}

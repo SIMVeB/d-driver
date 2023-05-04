@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('layouts.index');
+})->name('home');
+
+Route::get('register', function () {
+    return view('layouts.register');
+})->name('register');
+
+Route::get('owner', function () {
+    return view('layouts.owner');
+})->name('owner');
+
+Route::get('driver', function () {
+    return view('layouts.driver');
+})->name('driver');
+
+
