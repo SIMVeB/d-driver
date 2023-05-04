@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
     <!-- ======= Side Section ======= -->
+
     <section id="side" class="d-flex align-items-center">
         <div class="container">
             <div class="row">
@@ -13,7 +14,6 @@
             </div>
         </div>
     </section><!-- End Side -->
-
     <main id="main">
         <!-- ======= Form Section ======= -->
         <section id="form" class="form">
@@ -25,7 +25,8 @@
 
                 <div class="row content">
                     <div class="row mb-3">
-                        <h4 class="text-uppercase">Information sur le véhicule</h4>
+                        <h4 class="text-uppercase"> <i class="fa-solid fa-car-rear"></i> Information sur le véhicule
+                        </h4>
                     </div>
                     <form method="POST" action="{{ route('vehicle-store') }}">
                         @csrf
@@ -76,15 +77,35 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="bodyworkColor" class="form-label">Couleur carosserie :</label>
-                                        <input type="text" name="bodyworkColor" class="form-control" id="bodyworkColor">
+                                        <select class="form-select" name="bodyworkColor" id="bodyworkColor">
+                                            <option disabled selected>Selectionner une couleur de la carosserie</option>
+                                            <option value="Rouge">Rouge</option>
+                                            <option value="Gris">Gris</option>
+                                            <option value="Jaune">Jaune</option>
+                                            <option value="Vert">Vert</option>
+                                            <option value="Rouge">Rouge</option>
+                                            <option value="Bleu">Bleu</option>
+                                            <option value="Noir">Noir</option>
+                                            <option value="Multicolor">Multicolor</option>
+                                            <option value="Blanc">Blanc</option>
+                                            <option value="Autre">Autre</option>
+                                        </select>
                                         @if ($errors->has('bodyworkColor'))
                                             <div class="text-danger">{{ $errors->first('bodyworkColor') }}</div>
                                         @endif
                                     </div>
                                     <div class="mb-3">
                                         <label for="energy" class="form-label">Energie :</label>
-                                        <input type="text" name="energy"
-                                            class="form-control  @error('energy') is-invalid @enderror" id="energy">
+                                        <select class="form-select" name="energy" id="energy">
+                                            <option disabled selected>Selectionner une énergie</option>
+                                            <option value="Essence">Essence</option>
+                                            <option value="Hybride">Hybride</option>
+                                            <option value="Gazole">Gazole</option>
+                                            <option value="Electricité">Electricité</option>
+                                            <option value="Biocarburant">Biocarburant</option>
+                                            <option value="Solaire">Solaire</option>
+                                            <option value="Autre">Autre</option>
+                                        </select>
                                         @if ($errors->has('energy'))
                                             <div class="text-danger">{{ $errors->first('energy') }}</div>
                                         @endif
@@ -120,7 +141,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="usageState" class="form-label">Etat véhicule :</label>
-                                        <input type="text" name="usageState" class="form-control" id="usageState">
+                                        <select class="form-select" name="usageState" id="usageState">
+                                            <option disabled selected>Selectionner l'état du véhicule</option>
+                                            <option value="new">Neuf</option>
+                                            <option value="old">Vieux</option>
+                                        </select>
                                         @if ($errors->has('usageState'))
                                             <div class="text-danger">{{ $errors->first('usageState') }}</div>
                                         @endif
@@ -133,7 +158,8 @@
                                         @endif
                                     </div>
                                     <div class="mb-3">
-                                        <label for="registrationDate" class="form-label">Date d’immatriculation :</label>
+                                        <label for="registrationDate" class="form-label">Date d’immatriculation
+                                            :</label>
                                         <input type="date" name="registrationDate" class="form-control"
                                             id="registrationDate">
                                         @if ($errors->has('registrationDate'))
@@ -141,7 +167,8 @@
                                         @endif
                                     </div>
                                     <div class="mb-3">
-                                        <label for="firstUseDate" class="form-label">Date première utilisation :</label>
+                                        <label for="firstUseDate" class="form-label">Date première utilisation
+                                            :</label>
                                         <input type="date" name="firstUseDate" class="form-control"
                                             id="firstUseDate">
                                         @if ($errors->has('firstUseDate'))
@@ -149,7 +176,8 @@
                                         @endif
                                     </div>
                                     <div class="mb-3">
-                                        <label for="circulationDate" class="form-label">Date mise en circulation :</label>
+                                        <label for="circulationDate" class="form-label">Date mise en circulation
+                                            :</label>
                                         <input type="date" name="circulationDate" class="form-control "
                                             id="circulationDate">
                                         @if ($errors->has('circulationDate'))

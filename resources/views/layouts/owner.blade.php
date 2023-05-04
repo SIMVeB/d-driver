@@ -25,7 +25,7 @@
   
           <div class="row content">
            <div class="row mb-3">
-            <h4 class="text-uppercase">Information sur le propriétaire</h4>
+            <h4 class="text-uppercase"><i class="fa-solid fa-user"></i> Information sur le propriétaire</h4>
            </div>
            <form action="">
                <div class="row justify-content-between">
@@ -111,8 +111,8 @@
                     </div>
                </div>
                <div class="d-flex justify-content-between mt-3">
-                <a href="{{ route('register') }}" class="v-driver-btn-outline-primary">Etape précédente</a>
-                <a href="{{ route('driver') }}" class="v-driver-btn-outline-primary">Etape suivante</a>
+                <a href="{{ route('register') }}" class="v-driver-btn-outline-primary"><i class="fa-solid fa-arrow-left-long"></i> Etape précédente</a>
+                <a href="{{ route('driver') }}" class="v-driver-btn-outline-primary">Etape suivante <i class="fa-solid fa-arrow-right-long"></i></a>
                 {{-- <button type="button" href="{{ route('register') }}" class="v-driver-btn-outline-primary">Etape suivante</button> --}}
               </div>
            </form>
