@@ -59,12 +59,9 @@ class VehicleController extends Controller
         'airConditioner'=> 'required|string',
         ]);
 
-        dump($data);
-
         $vehicle = Vehicle::create($data);
 
-        return redirect()->route('layouts.owner')->with('success', 'Vehicles enregistrée avec
-        succès')->with('vehicle',compact('vehicle', ) );
+        return view('layouts.owner', compact('vehicle', ));
     }
 
     /**
