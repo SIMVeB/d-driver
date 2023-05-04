@@ -21,14 +21,17 @@ class Vehicle extends Model
         'energy',
         'sitePlace',
         'vin',
+        'circulationDate',
         'usageState',
         'power',
         'registrationDate',
         'firstUseDate',
-        'dateOfManufacturer',
+        'airConditioner',
+        // 'dateOfManufacturer',
         'glassType',
         'frontShape',
         'backShape',
+        'type',
     ];
 
     public function owner()

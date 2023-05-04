@@ -14,16 +14,16 @@ class Driver extends Model
         'gender',
         'birthDate',
         'birthPlace',
-        'profession',
-        'personality',
         'email',
         'phoneNumber',
         'passport',
         'zip',
+        'district',
         'nif',
         'address',
         'village',
         'commune',
-        'region'
+        'region',
+        "permis"
     ];
 }

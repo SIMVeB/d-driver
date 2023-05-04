@@ -54,6 +54,7 @@ class OwnerController extends Controller
         'village'=> 'required|string',
         'commune'=> 'required|string',
         'region'=> 'required|string',
+        'district'=> 'required|string',
 
         ]);
 
@@ -106,6 +107,7 @@ class OwnerController extends Controller
         'zip'=> 'required|string',
         'nif'=> 'required|string',
         'address'=> 'required|string',
+        'district'=> 'required|string',
         'village'=> 'required|string',
         'commune'=> 'required|string',
         'region'=> 'required|string',

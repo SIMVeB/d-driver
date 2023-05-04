@@ -21,6 +21,7 @@ class Owner extends Model
         'passport',
         'zip',
         'nif',
+        'district',
         'address',
         'village',
         'commune',
