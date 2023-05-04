@@ -195,8 +195,8 @@ $owner = Session::get('owner'); ?>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between mt-3">
-                            <a href="{{ route('owner') }}" class="v-driver-btn-outline-primary"><i
-                                    class="fa-solid fa-arrow-left-long"></i> Etape précédente</a>
+                            <button type="button" onclick="history.back()" class="v-driver-btn-outline-primary"><i class="fa-solid fa-arrow-left-long"></i> Etape précédente</button>
+
                             <button type="submit" class="v-driver-btn-outline-primary">Sauvegerder <i
                                     class="fa-solid fa-floppy-disk"></i></button>
                         </div>
