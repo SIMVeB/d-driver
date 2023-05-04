@@ -1,0 +1,4 @@
+form .form-control:focus {
+    border-color: var(--v-driver-primary);
+    box-shadow: none;
+  }

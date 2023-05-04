@@ -288,8 +288,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
-                            {{-- <a href="{{ route('owner') }}" class="v-driver-btn-outline-primary">Etape suivante</a> --}}
-                            <button type="submit" class="v-driver-btn-outline-primary">Etape suivante</button>
+                            <button type="submit" class="v-driver-btn-outline-primary">Etape suivante <i class="fa-solid fa-arrow-right-long"></i></button>
                         </div>
                     </form>
                 </div>
