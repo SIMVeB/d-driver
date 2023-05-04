@@ -32,81 +32,100 @@
                     <div class="col-lg-6">
                         <div class="form-col">
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Genre :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="genre" class="form-label">Genre :</label>
+                                <input type="text" name="genre" class="form-control" id="genre">
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Marque :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="manufacturer" class="form-label">Marque :</label>
+                                <input type="text" name="manufacturer" class="form-control" id="manufacturer">
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Châssis :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="chassis" class="form-label">Châssis :</label>
+                                <input type="text" name="chassis" class="form-control" id="chassis">
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Carosserie :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="bodywork" class="form-label">Carosserie :</label>
+                                <input type="text" name="bodywork" class="form-control" id="bodywork">
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Numéro de série :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="serialNumber" class="form-label">Numéro de série :</label>
+                                <input type="text" name="serialNumber" class="form-control" id="serialNumber">
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Type :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="type" class="form-label">Type :</label>
+                                <input type="text" name="type" class="form-control" id="type">
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Couleur carosserie :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="bodyworkColor" class="form-label">Couleur carosserie :</label>
+                                <input type="text" name="bodyworkColor" class="form-control" id="bodyworkColor">
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Energie :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="energy" class="form-label">Energie :</label>
+                                <input type="text" name="energy" class="form-control" id="energy">
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Place assises :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="sitePlace" class="form-label">Place assises :</label>
+                                <input type="number" name="sitePlace" class="form-control" id="sitePlace">
+                            </div>
+                            <div class="mb-3">
+                                <label for="airConditioner" class="form-label">Climatisation :</label>
+                                <select class="form-select" name="airConditioner" id="airConditioner">
+                                    <option disabled selected>Selectionner une réponse</option>
+                                    <option value="oui">Oui</option>
+                                    <option value="non">Non</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 ">
                         <div class="form-col">
-
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Numéro immatriculation :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="vin" class="form-label">Numéro immatriculation :</label>
+                                <input type="text" name="vin" class="form-control" id="vin">
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Etat véhicule :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="usageState" class="form-label">Etat véhicule :</label>
+                                <input type="text" name="usageState" class="form-control" id="usageState">
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Puissance :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="power" class="form-label">Puissance :</label>
+                                <input type="text" name="power" class="form-control" id="power">
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Date d’immatriculation :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="registrationDate" class="form-label">Date d’immatriculation :</label>
+                                <input type="date" name="registrationDate" class="form-control" id="registrationDate">
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Date première utilisation :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="firstUseDate" class="form-label">Date première utilisation :</label>
+                                <input type="date" name="firstUseDate" class="form-control" id="firstUseDate">
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Date mise en circulation :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="circulationDate" class="form-label">Date mise en circulation :</label>
+                                <input type="date" name="circulationDate" class="form-control" id="circulationDate">
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Vitres teintées :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="glassType" class="form-label">Vitres teintées :</label>
+                                <select class="form-select" name="glassType" id="gender">
+                                    <option disabled selected>Selectionner une réponse</option>
+                                    <option value="oui">Vitres non teintées</option>
+                                    <option value="non">Vitres teintées</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="energie" class="form-label">Forme avant :</label>
-                                <input type="text" name="energie" class="form-control" id="energie">
+                                <label for="frontShape" class="form-label">Forme avant :</label>
+                                <select class="form-select" name="frontShape" id="frontShape">
+                                    <option disabled selected>Selectionner une forme</option>
+                                    <option value="rectangle">Rectangle</option>
+                                    <option value="carre">Carré</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="place_assise" class="form-label">Forme arrière :</label>
-                                <input type="text" name="place_assise" class="form-control" id="place_assise">
+                                <label for="backShape" class="form-label">Forme arrière :</label>
+                                <select class="form-select" name="backShape" id="backShape">
+                                    <option disabled selected>Selectionner une forme</option>
+                                    <option value="rectangle">Rectangle</option>
+                                    <option value="carre">Carré</option>
+                                </select>
                             </div>
                         </div>
                     </div>
