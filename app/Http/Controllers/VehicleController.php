@@ -44,7 +44,7 @@ class VehicleController extends Controller
         'bodywork'=> 'required|string',
         'serialNumber'=> 'required|string',
         'bodyworkColor'=> 'required|string',
-        'energy'=> 'required|email',
+        'energy'=> 'required|string',
         'sitePlace'=> 'required|integer',
         'vin'=> 'required|string',
         'type'=> 'required|string',
@@ -56,6 +56,7 @@ class VehicleController extends Controller
         'glassType'=> 'required|string',
         'frontShape'=> 'required|string',
         'backShape'=> 'required|string',
+        'airConditioner'=> 'required|string',
         ]);
 
         dump($data);
