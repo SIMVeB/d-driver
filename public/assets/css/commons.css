@@ -373,6 +373,15 @@ section {
     background-position: center center;
 }
 
+#side.list {
+    width: 100%;
+    height: 80vh;
+    background-image: url("../images/Bg-header-list.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 #side .container {
     padding-top: 72px;
 }

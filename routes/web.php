@@ -35,6 +35,10 @@ Route::get('driver', function () {
     return view('layouts.driver');
 })->name('driver');
 
+Route::get('drivers', function () {
+    return view('layouts.drivers-list');
+})->name('drivers');
+
 Route::post('vehicle-store', [VehicleController::class, 'store'])->name('vehicle-store');
 Route::post('owner-store', [OwnerController::class, 'store'])->name('owner-store');
 Route::post('driver-store', [DriverController::class, 'store'])->name('driver-store');
