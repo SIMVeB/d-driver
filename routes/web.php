@@ -41,14 +41,11 @@ Route::get('faq', function () {
     return view('layouts.faq');
 })->name('faq');
 
-Route::get('faqs', function () {
-    return view('layouts.faqs-list');
-})->name('faqs');
-
-
 
 Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
 Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
+Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+
 
 Route::post('vehicle-store', [VehicleController::class, 'store'])->name('vehicle-store');
 Route::post('owner-store', [OwnerController::class, 'store'])->name('owner-store');
