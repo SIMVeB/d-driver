@@ -48,7 +48,7 @@ class FaqController extends Controller
         // //throw $th;
         // }
 
-        return redirect()->route('faq')->with("success", "FAQ sauvégarder avec succès");
+        return redirect()->route('faqs')->with("success", "FAQ sauvégarder avec succès");
 
     }
 
