@@ -43,10 +43,18 @@ Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
 Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 Route::get('/', [FaqController::class, 'home'])->name('home');
+Route::get('faqs/{faq}', [FaqController::class, 'edit'])->name('faqs.edit');
+Route::post('faqs/{faq}', [FaqController::class, 'update'])->name('faqs.update');
+Route::get('faqs/delete/{faq}', [FaqController::class, 'destroy'])->name('faqs.delete');
+
 
 
 
 Route::post('vehicle-store', [VehicleController::class, 'store'])->name('vehicle-store');
+Route::get('vehicle-back/{id}', [VehicleController::class, 'back'])->name('vehicle-back');
+Route::post('vehicle-update/{id}', [VehicleController::class, 'update'])->name('vehicle-update');
+
+
 Route::post('owner-store', [OwnerController::class, 'store'])->name('owner-store');
 Route::post('driver-store', [DriverController::class, 'store'])->name('driver-store');
 Route::post('news-letter-store', [NewsLetterController::class, 'store'])->name('news-letter-store');

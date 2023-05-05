@@ -84,9 +84,11 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
+    public function edit($param)
     {
-        //
+        $faq = Faq::find($param);
+        return view('layouts.faq', compact('faq'));
+
     }
 
     /**
@@ -96,9 +98,24 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(Request $request,Faq $faq)
     {
-        //
+        $data = $request->validate([
+            'quiz'=> 'string',
+            'answer'=> 'string',
+            ]);
+        try {
+            $faq->quiz =$data['quiz'];
+            $faq->answer =$data['answer'];
+            $faq->save();
+            $faqs = Faq::all();
+            toast("Question mise à jour avec succès", 'success');
+            return redirect()->route('faqs')->with(["faq"=>$faqs]);
+        } catch (\Throwable $th) {
+            toast("Une erreur s'est produite", 'error');
+            return redirect()->back();
+        }
+
     }
 
     /**
@@ -109,6 +126,8 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        //
+        $faq->delete();
+        toast("Question supprimée avec succès", 'success');
+        return redirect()->back();
     }
 }
