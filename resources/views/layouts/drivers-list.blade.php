@@ -50,8 +50,6 @@
                                         <td>{{ $driver->phoneNumber }}</td>
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>
