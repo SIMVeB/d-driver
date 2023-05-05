@@ -10,7 +10,7 @@ $owner = Session::get('owner'); ?>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">ACCUEIL</a></li>
-                        <li class="breadcrumb-item active text-white" aria-current="page">INSCRIPTION</li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">FAQs</li>
                     </ol>
                 </nav>
             </div>
