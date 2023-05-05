@@ -52,6 +52,7 @@ class NewsLetterController extends Controller
 
         return redirect()->route('home');
 
+
     }
 
     /**
