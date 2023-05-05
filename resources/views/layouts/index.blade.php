@@ -78,44 +78,6 @@
                                         </div>
                                     </li>
                                 @endforeach
-                                
-
-                                <li data-aos="fade-up">
-                                    <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse"
-                                        data-bs-target="#faq-list-2" class="collapsed">Question 2 ? <i
-                                            class="fa-solid fa-chevron-down icon-show"></i><i
-                                            class="fa-solid fa-chevron-up icon-close"></i></a>
-                                    <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Réponse 2
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up">
-                                    <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse"
-                                        data-bs-target="#faq-list-3" class="collapsed">Question 3 ? <i
-                                            class="fa-solid fa-chevron-down icon-show"></i><i
-                                            class="fa-solid fa-chevron-up icon-close"></i></a>
-                                    <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Réponse 3
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up">
-                                    <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse"
-                                        data-bs-target="#faq-list-4" class="collapsed">Question 4 ? <i
-                                            class="fa-solid fa-chevron-down icon-show"></i><i
-                                            class="fa-solid fa-chevron-up icon-close"></i></a>
-                                    <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Réponse 4
-                                        </p>
-                                    </div>
-                                </li>
-
                             </ul>
                         </div>
 
