@@ -37,6 +37,10 @@ Route::get('driver', function () {
     return view('layouts.driver');
 })->name('driver');
 
+Route::get('faq', function () {
+    return view('layouts.faq');
+})->name('faq');
+
 
 
 Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
