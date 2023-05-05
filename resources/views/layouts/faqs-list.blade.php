@@ -39,17 +39,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($faqs as $key => $faq)
+                                @foreach ($faqs as $key => $faq)
                                     <tr>
                                         <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $faq->name }}</td>
-                                        <td>{{ $faq->birthDate }}</td>
+                                        <td>{{ $faq->quiz }}</td>
+                                        <td>{{ $faq->answer }}</td>
                                         <td>
                                             <button type="submit" title="modifier" class="btn"><i class="fa-solid fa-pen-to-square"></i></button>
                                             <button type="submit" title="supprimer" class="btn text-danger"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                                 <tr>
                                     <th scope="row">{{ $key + 1 </th>
                                     <td>{{ $driver->name </td>
