@@ -62,10 +62,8 @@ class VehicleController extends Controller
         ]);
 
         $vehicle = Vehicle::create($data);
-        toast('Véhicule enrégistré avec succès','Succès');
-
-        return redirect()->route('owner')->with(['vehicle' => $vehicle] )->with("sectionId","#form");
-
+        toast('Véhicule enrégistré avec succès','success');
+        return redirect()->route('owner')->with(['vehicle' => $vehicle]);
     }
 
     /**

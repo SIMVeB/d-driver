@@ -36,16 +36,18 @@ class NewsLetterController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+        'email'=> 'required|email',
+        ]);
+
         try {
-            $data = $request->validate([
-            'email'=> 'required|email',
-            ]);
 
             $newsLetter = NewsLetter::create($data);
-            Alert::success('Succès', "Vous êtes souscrit au news letter avec succcès")->autoClose(2000);
+            toast("Vous êtes souscrit au news letter avec succcès", "success");
 
         } catch (\Throwable $th) {
-            //throw $th;
+            toast("Vous êtes déjà inscript", "error");
+            redirect()->back();
         }
 
         return redirect()->route('home');

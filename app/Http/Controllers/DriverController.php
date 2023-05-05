@@ -68,7 +68,7 @@ class DriverController extends Controller
 
         $vehicle->save();
 
-        Alert::success('Succès', "Conducteur du véhicule enrégistré avec succès")->autoClose(2000);
+        toast( "Conducteur du véhicule enrégistré avec succès", 'success');
 
 
         return redirect()->route('home')->with('success', 'Les informations sont enrégistrées avec succès');
