@@ -68,10 +68,10 @@
                                 @foreach ($faqs as $key => $faq)
                                     <li data-aos="fade-up">
                                         <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse"
-                                            data-bs-target="#{{ $key }}" class="collapsed">{{ $faq->quiz }} <i
+                                        data-bs-target="#faq-list-{{ $key }}" class="collapsed">{{ $faq->quiz }} <i
                                                 class="fa-solid fa-chevron-down icon-show"></i><i
                                                 class="fa-solid fa-chevron-up icon-close"></i></a>
-                                        <div id="{{ $key }}" class="collapse" data-bs-parent=".faq-list">
+                                        <div id="faq-list-{{ $key }}" class="collapse" data-bs-parent=".faq-list">
                                             <p>
                                                 {{ $faq->answer }}
                                             </p>
