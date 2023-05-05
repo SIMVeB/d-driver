@@ -35,7 +35,8 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+
+        // try {
         $data = $request->validate([
         'quiz'=> 'required|string',
         'answer'=> 'required|string',
@@ -43,11 +44,11 @@ class FaqController extends Controller
 
         $faqs = Faq::create($data);
 
-        } catch (\Throwable $th) {
-        //throw $th;
-        }
+        // } catch (\Throwable $th) {
+        // //throw $th;
+        // }
 
-        return redirect()->route('home')->with("success", "FAQ sauvégarder avec succès");
+        return redirect()->route('faq')->with("success", "FAQ sauvégarder avec succès");
 
     }
 

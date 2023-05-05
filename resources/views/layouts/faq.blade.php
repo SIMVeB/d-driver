@@ -23,33 +23,34 @@ $owner = Session::get('owner'); ?>
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h3>Formulaire de foirs aux questions</h3>
+                    <h3>Formulaire de foirs aux quizs</h3>
                 </div>
 
                 <div class="row content">
                     <div class="row mb-3">
-                        <h4 class="text-uppercase"><i class="fa-solid fa-clipboard-question"></i> Enregistrement des questions et réponses</h4>
+                        <h4 class="text-uppercase"><i class="fa-solid fa-clipboard-quiz"></i> Enregistrement des
+                            quizs et réponses</h4>
                     </div>
-                    <form method="POST" action="{{ route('faq-store') }}" >
+                    <form method="POST" action="{{ route('faq-store') }}">
                         @csrf
                         <div class="row justify-content-around">
                             <div class="col-lg-8">
                                 <div class="form-col">
                                     <div class="mb-3">
-                                        <label for="question" class="form-label">Question :</label>
-                                        <input type="text" name="question"
-                                            class="form-control @error('question') is-invalid @enderror" id="question"
-                                            value="{{ old('question') }}" id="question">
-                                        @if ($errors->has('question'))
-                                            <div class="text-danger">{{ $errors->first('question') }}</div>
+                                        <label for="quiz" class="form-label">Question :</label>
+                                        <input type="text" name="quiz"
+                                            class="form-control @error('quiz') is-invalid @enderror" id="quiz"
+                                            value="{{ old('quiz') }}" id="quiz">
+                                        @if ($errors->has('quiz'))
+                                            <div class="text-danger">{{ $errors->first('quiz') }}</div>
                                         @endif
                                     </div>
                                     <div class="mb-3">
-                                        <label for="response" class="form-label">Réponse :</label>
-                                        <textarea name="response" id="response" cols="30" rows="10" class="form-control @error('response') is-invalid @enderror"
-                                        value="{{ old('response') }}"></textarea>
-                                        @if ($errors->has('response'))
-                                            <div class="text-danger">{{ $errors->first('response') }}</div>
+                                        <label for="answer" class="form-label">Réponse :</label>
+                                        <textarea name="answer" id="answer" cols="30" rows="10"
+                                            class="form-control @error('answer') is-invalid @enderror">{{ old('answer') }}</textarea>
+                                        @if ($errors->has('answer'))
+                                            <div class="text-danger">{{ $errors->first('answer') }}</div>
                                         @endif
                                     </div>
                                 </div>
