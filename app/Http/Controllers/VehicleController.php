@@ -61,7 +61,7 @@ class VehicleController extends Controller
 
         $vehicle = Vehicle::create($data);
 
-        return redirect()->route('owner')->with(['vehicle' => $vehicle] );
+        return redirect()->route('owner')->with(['vehicle' => $vehicle] )->with("sectionId","#form");
 
     }
 
