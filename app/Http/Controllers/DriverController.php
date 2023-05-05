@@ -68,6 +68,9 @@ class DriverController extends Controller
 
         $vehicle->save();
 
+        Alert::success('Succès', "Conducteur du véhicule enrégistré avec succès")->autoClose(2000);
+
+
         return redirect()->route('home')->with('success', 'Les informations sont enrégistrées avec succès');
     }
 

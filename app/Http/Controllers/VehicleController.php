@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Alert;
+
 
 class VehicleController extends Controller
 {
@@ -60,6 +62,7 @@ class VehicleController extends Controller
         ]);
 
         $vehicle = Vehicle::create($data);
+        Alert::success('Succès', "Véhicule enrégistré avec succès")->autoClose(2000);
 
         return redirect()->route('owner')->with(['vehicle' => $vehicle] )->with("sectionId","#form");
 

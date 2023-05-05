@@ -42,12 +42,13 @@ class NewsLetterController extends Controller
             ]);
 
             $newsLetter = NewsLetter::create($data);
+            Alert::success('Succès', "Vous êtes souscrit au news letter avec succcès")->autoClose(2000);
 
         } catch (\Throwable $th) {
             //throw $th;
         }
 
-        return redirect()->route('home')->with("success", "Vous êtes souscrit au news letter avec succcès");
+        return redirect()->route('home');
 
     }
 

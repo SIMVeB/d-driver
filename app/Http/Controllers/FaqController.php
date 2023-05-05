@@ -50,6 +50,8 @@ class FaqController extends Controller
         // }
 
         $faqs = Faq::all();
+        Alert::success('Succès', "Question enrégistrée avec succès")->autoClose(2000);
+
 
         return redirect()->route('faqs')->with(["faq"=>$faqs])->with("success", "FAQ sauvégarder avec succès");
     }

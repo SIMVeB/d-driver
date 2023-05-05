@@ -67,6 +67,7 @@ class OwnerController extends Controller
         $vehicle->owner_id = $owner->id ;
 
         $vehicle->save();
+        Alert::success('Succès', "Propriétaire du véhicule enrégistré avec succès")->autoClose(2000);
 
         return redirect()->route('driver')->with(['vehicle' => $vehicle, 'owner' => $owner]);
     }
