@@ -50,15 +50,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr>
-                                    <th scope="row">{{ $key + 1 </th>
-                                    <td>{{ $driver->name </td>
-                                    <td>{{ $driver->birthDate </td>
-                                    <td>
-                                        <button type="submit" title="modifier" class="btn"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        <button type="submit" title="supprimer" class="btn text-danger"><i class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
