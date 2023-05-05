@@ -35,7 +35,20 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+        $data = $request->validate([
+        'quiz'=> 'required|string',
+        'answer'=> 'required|string',
+        ]);
+
+        $faqs = Faq::create($data);
+
+        } catch (\Throwable $th) {
+        //throw $th;
+        }
+
+        return redirect()->route('home')->with("success", "FAQ sauvégarder avec succès");
+
     }
 
     /**
