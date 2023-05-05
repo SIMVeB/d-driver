@@ -45,7 +45,7 @@
                                         <th scope="row">{{ $key + 1 }}</th>
                                         <td>{{ $faq->quiz }}</td>
                                         <td>{{ $faq->answer }}</td>
-                                        <td>
+                                        <td class="d-flex" >
                                             <button type="submit" title="modifier" class="btn"><i
                                                     class="fa-solid fa-pen-to-square"></i></button>
                                             <button type="submit" title="supprimer" class="btn text-danger"><i

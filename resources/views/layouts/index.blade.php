@@ -65,17 +65,20 @@
 
                         <div class="faq-list">
                             <ul>
-                                <li data-aos="fade-up">
-                                    <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse"
-                                        data-bs-target="#faq-list-1" class="collapsed">Question 1 ? <i
-                                            class="fa-solid fa-chevron-down icon-show"></i><i
-                                            class="fa-solid fa-chevron-up icon-close"></i></a>
-                                    <div id="faq-list-1" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Réponse 1
-                                        </p>
-                                    </div>
-                                </li>
+                                @foreach ($faqs as $key => $faq)
+                                    <li data-aos="fade-up">
+                                        <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse"
+                                            data-bs-target="#{{$key}}" class="collapsed">{{ $faq->quiz }} <i
+                                                class="fa-solid fa-chevron-down icon-show"></i><i
+                                                class="fa-solid fa-chevron-up icon-close"></i></a>
+                                        <div id="{{$key}}" class="collapse" data-bs-parent=".faq-list">
+                                            <p>
+                                                {{ $faq->answer }}
+                                            </p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                                
 
                                 <li data-aos="fade-up">
                                     <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse"
