@@ -1,6 +1,3 @@
-<?php $vehicle = Session::get('vehicle');
-$owner = Session::get('owner'); ?>
-
 @extends('master')
 @section('content')
     <!-- ======= Side Section ======= -->
@@ -65,7 +62,4 @@ $owner = Session::get('owner'); ?>
             </div>
         </section><!-- End Form Section -->
     </main><!-- End #main -->
-    <script>
-        document.getElementById('form').scrollIntoView();
-    </script>
 @endsection
