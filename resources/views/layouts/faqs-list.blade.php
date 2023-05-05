@@ -25,7 +25,7 @@
 
                 <div class="row content">
                     <div class="col mb-3 text-end">
-                        <a href="{{ route('home') }}" class="btn btn-light">AJOUTER UNE QUESTION <i
+                        <a href="{{ route('faq') }}#form" class="btn btn-light">AJOUTER UNE QUESTION <i
                             class="fa-solid fa-plus"></i></a>
                     </div>
                     <div class="table-responsive">
