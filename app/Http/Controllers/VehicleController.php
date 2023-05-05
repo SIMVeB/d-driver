@@ -62,7 +62,7 @@ class VehicleController extends Controller
         ]);
 
         $vehicle = Vehicle::create($data);
-        Alert::success('Succès', "Véhicule enrégistré avec succès")->autoClose(2000);
+        toast('Véhicule enrégistré avec succès','Succès');
 
         return redirect()->route('owner')->with(['vehicle' => $vehicle] )->with("sectionId","#form");
 

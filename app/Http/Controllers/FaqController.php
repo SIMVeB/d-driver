@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use Illuminate\Http\Request;
+use Alert;
 
 class FaqController extends Controller
 {
