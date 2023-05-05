@@ -7,8 +7,7 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 pt-lg-0 order-2 order-lg-1 text-white"
                     data-aos="fade-up">
-                    <h2>Recensement des conducteurs de véhicules à quatre (04)
-                        roues desservant le parking de l’aéroport international
+                    <h2>Recensement des conducteurs Taxi desservant le parking de l’aéroport international
                         <span class="v-driver-fw-bold">AHMED SEKOU TOURE</span> de <span
                             class="v-driver-fw-bold">CONAKRY</span>
                     </h2>
@@ -35,18 +34,16 @@
                 <div class="row content">
                     <div class="col">
                         <p class="text-center">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum impedit voluptate nisi
-                            necessitatibus magni corrupti fuga,
-                            totam commodi vitae iste dolorem harum rem temporibus placeat aut modi, quasi quae.
-                            Accusamus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum impedit voluptate nisi
-                            necessitatibus magni corrupti fuga,
-                            totam commodi vitae iste dolorem harum rem temporibus placeat aut modi, quasi quae.
-                            Accusamus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum impedit voluptate nisi
-                            necessitatibus magni corrupti fuga,
-                            totam commodi vitae iste dolorem harum rem temporibus placeat aut modi, quasi quae.
-                            Accusamus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum impedit voluptate nisi
-                            necessitatibus magni corrupti fuga,
-                            totam commodi vitae iste dolorem harum rem temporibus placeat aut modi, quasi quae. Accusamus
+                            La régularisation des taxis sur un parking d'aéroport est désormain conditionné par des règles et des procédures. En général, les taxis doivent s'inscrire sur la platefome V-Driver de l'aéroport.
+
+                            Les chauffeurs de taxi doivent fournir des informations telles que leur numéro de licence de taxi, leur numéro d'immatriculation de véhicule, leur preuve d'assurance et leur permis de conduire. Ils peuvent également être tenus de se soumettre à une vérification des antécédents de conduite et à une inspection de sécurité du véhicule.
+
+                            En fonction de l'aéroport, les chauffeurs de taxi peuvent être tenus de payer des frais d'inscription, des frais d'utilisation ou des frais de stationnement. Les règles en matière de tarification peuvent également varier en fonction de l'aéroport.
+
+                            La régularisation des taxis sur un parking d'aéroport est importante pour garantir la sécurité et la commodité des passagers et des chauffeurs. Les taxis régularisés peuvent bénéficier d'une place de stationnement réservée, ce qui peut réduire les temps d'attente et améliorer la sécurité. Les passagers peuvent également être assurés que les taxis régularisés ont été soumis à des vérifications de sécurité et ont des conducteurs autorisés.
+
+                            Si vous êtes un chauffeur de taxi et que vous souhaitez vous régulariser sur un parking d'aéroport, je vous recommande de contacter directement l'organisme de gestion responsable de l'emplacement pour connaître les procédures spécifiques d'inscription, les exigences et les frais applicables.
+                        </p>
                     </div>
 
                 </div>
