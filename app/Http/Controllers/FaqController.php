@@ -14,7 +14,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $faqs = Faq::all();
+        return view('layouts.faqs-list', compact('faqs'));
     }
 
     /**
@@ -42,14 +43,15 @@ class FaqController extends Controller
         'answer'=> 'required|string',
         ]);
 
-        $faqs = Faq::create($data);
+        $faq = Faq::create($data);
 
         // } catch (\Throwable $th) {
         // //throw $th;
         // }
 
-        return redirect()->route('faqs')->with("success", "FAQ sauvégarder avec succès");
+        $faqs = Faq::all();
 
+        return redirect()->route('faqs')->with(["faq"=>$faqs])->with("success", "FAQ sauvégarder avec succès");
     }
 
     /**
