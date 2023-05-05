@@ -24,9 +24,6 @@
                 </div>
 
                 <div class="row content">
-                    {{-- <div class="row mb-3">
-                    <h4 class="text-uppercase"><i class="fa-solid fa-user-tie"></i> Liste des conducteurs</h4>
-                </div> --}}
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>

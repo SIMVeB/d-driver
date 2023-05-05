@@ -25,8 +25,7 @@
 
                 <div class="row content">
                     <div class="row mb-3">
-                        <h4 class="text-uppercase"><i class="fa-solid fa-clipboard-quiz"></i> Enregistrement des
-                            quizs et réponses</h4>
+                        <h4 class="text-uppercase"><i class="fa-solid fa-clipboard-question"></i> Enregistrement des quizs et réponses</h4>
                     </div>
                     <form method="POST" action="{{ route('faq-store') }}">
                         @csrf
