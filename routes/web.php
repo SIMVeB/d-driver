@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\NewsLetterController;
 
 
 
@@ -38,7 +39,9 @@ Route::get('driver', function () {
 
 
 Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
+Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
 
 Route::post('vehicle-store', [VehicleController::class, 'store'])->name('vehicle-store');
 Route::post('owner-store', [OwnerController::class, 'store'])->name('owner-store');
 Route::post('driver-store', [DriverController::class, 'store'])->name('driver-store');
+Route::post('news-letter-store', [NewsLetterController::class, 'store'])->name('news-letter-store');
