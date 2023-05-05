@@ -21,9 +21,6 @@ use App\Http\Controllers\FaqController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.index');
-})->name('home');
 
 Route::get('register', function () {
     return view('layouts.register');
@@ -45,6 +42,8 @@ Route::get('faq', function () {
 Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
 Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+Route::get('/', [FaqController::class, 'home'])->name('home');
+
 
 
 Route::post('vehicle-store', [VehicleController::class, 'store'])->name('vehicle-store');

@@ -18,6 +18,18 @@ class FaqController extends Controller
         return view('layouts.faqs-list', compact('faqs'));
     }
 
+
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function home()
+    {
+        $faqs = Faq::all();
+        return view('layouts.index', compact('faqs'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
