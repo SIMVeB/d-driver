@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Alert;
+use Session;
+
 
 
 class VehicleController extends Controller
@@ -27,7 +29,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        return view('vehicles.create');
+        return view('layouts.register');
     }
 
     /**
@@ -62,6 +64,7 @@ class VehicleController extends Controller
         ]);
 
         $vehicle = Vehicle::create($data);
+        Session::put('vehicle', $vehicle);
         toast('Véhicule enrégistré avec succès','success');
         return redirect()->route('owner')->with(['vehicle' => $vehicle]);
     }
@@ -88,7 +91,6 @@ class VehicleController extends Controller
     {
         $vehicle = Vehicle::find($id);
         return view('layouts.register', compact('vehicle'));
-
     }
 
     /**
@@ -134,12 +136,16 @@ class VehicleController extends Controller
         ]);
 
         $vehicle = Vehicle::find($id);
-
         $vehicle->update($data);
 
         toast('Véhicule mise à jour avec succès','success');
+        $result = ['vehicle' => $vehicle];
 
-        return redirect()->route('owner')->with(['vehicle' => $vehicle]);
+        if($vehicle->owner){
+            $result["owner"]= $vehicle->owner;
+        }
+        Session::put('vehicle', $vehicle);
+        return redirect()->route('owner')->with($result);
     }
 
     /**

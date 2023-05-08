@@ -22,36 +22,36 @@
                 </div>
 
                 <div class="row content">
-                 
-                    <form >
+
+                    <form method="POST" action="{{ route('administrator-login') }}">
                         @csrf
                         <div class="row justify-content-around">
                             <div class="col-lg-5">
                                 <div class="form-col">
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Identifiant :</label>
-                                        <input type="email" name="email"
-                                            class="form-control @error('email') is-invalid @enderror" id="email"
+                                        <input type="email" name="email" class="form-control" id="email"
                                             value="{{ old('email') }}" id="email">
-                                        @if ($errors->has('email'))
-                                            <div class="text-danger">{{ $errors->first('email') }}</div>
-                                        @endif
+
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Mot de passe :</label>
-                                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                                        value="{{ old('password') }}" id="password">
-                                        @if ($errors->has('password'))
-                                            <div class="text-danger">{{ $errors->first('password') }}</div>
-                                        @endif
+                                        <input type="password" name="password"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            value="{{ old('password') }}" id="password">
+
                                     </div>
+                                    @if ($errors->has('email') || $errors->has('password'))
+                                        <div class="text-danger">Email ou mot de passe invalide</div>
+                                    @endif
                                     <div class="d-grid">
-                                        <button type="submit" class="v-driver-btn-outline-primary">Connexion <i class="fa-solid fa-sign-in"></i></button>
+                                        <button type="submit" class="v-driver-btn-outline-primary">Connexion <i
+                                                class="fa-solid fa-sign-in"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
 

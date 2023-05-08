@@ -71,7 +71,7 @@ class DriverController extends Controller
         toast( "Conducteur du véhicule enrégistré avec succès", 'success');
 
 
-        return redirect()->route('home')->with('success', 'Les informations sont enrégistrées avec succès');
+        return redirect()->route('home');
     }
 
     /**

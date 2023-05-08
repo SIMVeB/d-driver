@@ -1,5 +1,11 @@
-<?php $vehicle = Session::get('vehicle');
-$owner = Session::get('owner'); ?>
+<?php if (!isset($vehicle)) {
+    $vehicle = Session::get('vehicle');
+}
+if (!isset($owner)) {
+    $owner = Session::get('owner');
+}
+
+?>
 
 @extends('master')
 @section('content')
@@ -182,21 +188,28 @@ $owner = Session::get('owner'); ?>
 
                                     <div>
                                         <input type="text" name="vehicle_id"
-                                            value="{{ $vehicle ? $vehicle->id : old('vehicle_id') }}"
+                                            value="{{ $vehicle && $vehicle != null ? $vehicle->id : old('vehicle_id') }}"
                                             class="form-control" id="nif" hidden>
+                                        @if ($errors->has('vehicle_id'))
+                                            <span class="text-danger">{{ $errors->first('vehicle_id') }}</span>
+                                        @endif
                                     </div>
 
                                     <div>
                                         <input type="text" name="owner_id"
-                                            value="{{ $owner ? $owner->id : old('owner_id') }}" class="form-control"
-                                            id="nif" hidden>
+                                            value="{{ $owner && $owner != null ? $owner->id : old('owner_id') }}"
+                                            class="form-control" id="nif" hidden>
+                                        @if ($errors->has('owner_id'))
+                                            <span class="text-danger">{{ $errors->first('owner_id') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between mt-3">
-                            <button type="button" onclick="history.back()" class="v-driver-btn-outline-primary"><i
-                                    class="fa-solid fa-arrow-left-long"></i> Etape précédente</button>
+                            <a href="{{ $owner && $owner != null ? route('owner-back', $owner->id) : '#' }}"
+                                class="v-driver-btn-outline-primary"><i class="fa-solid fa-arrow-left-long"></i> Etape
+                                précédente</a>
 
                             <button type="submit" class="v-driver-btn-outline-primary">Sauvegerder <i
                                     class="fa-solid fa-floppy-disk"></i></button>

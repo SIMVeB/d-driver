@@ -6,6 +6,9 @@ use App\Models\Owner;
 use App\Models\Vehicle;
 
 use Illuminate\Http\Request;
+use Session;
+
+
 
 class OwnerController extends Controller
 {
@@ -65,9 +68,12 @@ class OwnerController extends Controller
         $owner = Owner::create($data);
 
         $vehicle->owner_id = $owner->id ;
-
         $vehicle->save();
-        toast('Véhicule enrégistré avec succès','success');
+
+        Session::forget('vehicle');
+        Session::forget('owner');
+
+        toast('Propriétaire enrégistré avec succès','success');
         return redirect()->route('driver')->with(['vehicle' => $vehicle, 'owner' => $owner]);
     }
 
@@ -80,6 +86,21 @@ class OwnerController extends Controller
     public function show(Owner $owner)
     {
         return view('owners.detail', compact('owner', ));
+    }
+
+
+    /**
+    * Display the specified resource.
+    *
+    * @param \App\Models\Owner $owner
+    * @return \Illuminate\Http\Response
+    */
+    public function back( $id)
+    {
+        $owner = Owner::find($id);
+        $vehicle = Session::get('vehicle');
+        dd($vehicle);
+        return view('layouts.owner', compact('owner', 'vehicle'));
     }
 
     /**
@@ -100,11 +121,11 @@ class OwnerController extends Controller
      * @param  \App\Models\Owner  $owner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Owner $owner)
+    public function update(Request $request, $id)
     {
-        $this->validate($request,[
+        $data= $request->validate([
         'name'=> 'required|string',
-        'gender'=> 'required|boolean',
+        'gender'=> 'required|string',
         'birthDate'=> 'required|date',
         'birthPlace'=> 'required|string',
         'profession'=> 'required|string',
@@ -115,16 +136,24 @@ class OwnerController extends Controller
         'zip'=> 'required|string',
         'nif'=> 'required|string',
         'address'=> 'required|string',
-        'district'=> 'required|string',
         'village'=> 'required|string',
         'commune'=> 'required|string',
         'region'=> 'required|string',
+        'district'=> 'required|string',
+        'vehicle_id'=> 'required|numeric|min:1'
         ]);
 
 
+        $owner = Owner::find($id);
+
         $owner->update($request);
 
-        return redirect()->route('owners.index')->with('success', 'Owners enregistrée avec succès');
+        $vehicle =  Session::get('vehicle');
+        Session::put('owner', $owner);
+
+        toast('Propriétaire mise à jour avec succès','success');
+        return redirect()->route('owner')->with(['vehicle' => $vehicle, 'owner' => $owner]);
+
     }
 
     /**
