@@ -38,6 +38,10 @@ Route::get('faq', function () {
     return view('layouts.faq');
 })->name('faq');
 
+Route::get('login', function () {
+    return view('layouts.login');
+})->name('admin-login');
+
 
 Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
 Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
