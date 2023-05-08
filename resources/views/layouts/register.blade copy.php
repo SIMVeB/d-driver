@@ -1,9 +1,3 @@
-<?php
-if (!isset($vehicle)) {
-    $vehicle = Session::get('vehicle');
-}
-?>
-
 @extends('master')
 @section('content')
     <!-- ======= Side Section ======= -->
@@ -34,8 +28,7 @@ if (!isset($vehicle)) {
                         <h4 class="text-uppercase"> <i class="fa-solid fa-car-rear"></i> Information sur le véhicule
                         </h4>
                     </div>
-                    <form method="POST"
-                        action="{{ $vehicle ? route('vehicle-update', $vehicle->id) : route('vehicle-store') }}">
+                    <form method="POST" action="{{ route('vehicle-store') }}">
                         @csrf
                         <div class="row justify-content-between">
                             <div class="col-lg-6">

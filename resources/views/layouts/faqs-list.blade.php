@@ -45,11 +45,11 @@
                                         <th scope="row">{{ $key + 1 }}</th>
                                         <td>{{ $faq->quiz }}</td>
                                         <td>{{ $faq->answer }}</td>
-                                        <td class="d-flex" >
-                                            <button type="submit" title="modifier" class="btn"><i
-                                                    class="fa-solid fa-pen-to-square"></i></button>
-                                            <button type="submit" title="supprimer" class="btn text-danger"><i
-                                                    class="fa-solid fa-trash"></i></button>
+                                        <td class="d-flex">
+                                            <a href="{{ route('faqs.edit', $faq) }}" title="modifier" class="btn"><i
+                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="{{ route('faqs.delete', $faq) }}" type="submit" title="supprimer"
+                                                class="btn text-danger"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

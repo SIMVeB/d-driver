@@ -77,6 +77,20 @@ class VehicleController extends Controller
         return view('vehicles.detail', compact('vehicle', ));
     }
 
+
+    /**
+    * Display the specified resource.
+    *
+    * @param \App\Models\Vehicle $vehicle
+    * @return \Illuminate\Http\Response
+    */
+    public function back( $id)
+    {
+        $vehicle = Vehicle::find($id);
+        return view('layouts.register', compact('vehicle'));
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -95,32 +109,37 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(Request $request,  $id)
     {
-        $this->validate($request,[
+        $data= $request->validate([
         'genre'=> 'required|string',
         'manufacturer'=> 'required|string',
         'chassis'=> 'required|string',
         'bodywork'=> 'required|string',
         'serialNumber'=> 'required|string',
-        'bodyworkNumber'=> 'required|string',
+        'bodyworkColor'=> 'required|string',
         'energy'=> 'required|string',
         'sitePlace'=> 'required|integer',
         'vin'=> 'required|string',
+        'type'=> 'required|string',
         'usageState'=> 'required|string',
         'power'=> 'required|string',
         'registrationDate'=> 'required|date',
-        'firstUseDate'=> 'required|date',
         'circulationDate'=> 'required|date',
+        'firstUseDate'=> 'required|date',
         'glassType'=> 'required|string',
         'frontShape'=> 'required|string',
         'backShape'=> 'required|string',
+        'airConditioner'=> 'required|string',
         ]);
 
         $vehicle = Vehicle::find($id);
 
-        $vehicle->update($request);
-        return redirect()->route('vehicles.index')->with('success', 'Vehicles enregistrée avec succès');
+        $vehicle->update($data);
+
+        toast('Véhicule mise à jour avec succès','success');
+
+        return redirect()->route('owner')->with(['vehicle' => $vehicle]);
     }
 
     /**
