@@ -1,3 +1,8 @@
+<?php
+if (!isset($faq)) {
+    $faq = Session::get('owner');
+}
+?>
 @extends('master')
 @section('content')
     <!-- ======= Side Section ======= -->
@@ -28,7 +33,7 @@
                         <h4 class="text-uppercase"><i class="fa-solid fa-clipboard-question"></i> Enregistrement des quizs
                             et réponses</h4>
                     </div>
-                    <form method="POST" action="{{ $faq ? route('faqs.update', $faq) : route('faq-store') }}">
+                    <form method="POST" action="{{ $faq != null ? route('faqs.update', $faq) : route('faq-store') }}">
                         @csrf
                         <div class="row justify-content-around">
                             <div class="col-lg-8">
@@ -37,7 +42,7 @@
                                         <label for="quiz" class="form-label">Question :</label>
                                         <input type="text" name="quiz"
                                             class="form-control @error('quiz') is-invalid @enderror" id="quiz"
-                                            value="{{ old('quiz') ?? ($faq ? $faq->quiz : '') }}" id="quiz">
+                                            value="{{ old('quiz') ?? ($faq != null ? $faq->quiz : '') }}" id="quiz">
                                         @if ($errors->has('quiz'))
                                             <div class="text-danger">{{ $errors->first('quiz') }}</div>
                                         @endif
@@ -45,7 +50,7 @@
                                     <div class="mb-3">
                                         <label for="answer" class="form-label">Réponse :</label>
                                         <textarea name="answer" id="answer" cols="30" rows="10"
-                                            class="form-control @error('answer') is-invalid @enderror">{{ old('answer') ?? ($faq ? $faq->answer : '') }}</textarea>
+                                            class="form-control @error('answer') is-invalid @enderror">{{ old('answer') ?? ($faq != null ? $faq->answer : '') }}</textarea>
                                         @if ($errors->has('answer'))
                                             <div class="text-danger">{{ $errors->first('answer') }}</div>
                                         @endif
