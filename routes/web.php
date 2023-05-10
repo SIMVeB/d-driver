@@ -29,6 +29,7 @@ Route::get('owner', function () { return view('layouts.owner'); })->name('owner'
 Route::get('driver', function () { return view('layouts.driver'); })->name('driver');
 Route::get('faq', function () { return view('layouts.faq'); })->name('faq');
 Route::get('login', function () { return view('layouts.login'); })->name('admin-login');
+Route::get('dashboard', function () { return view('layouts.dashboard'); })->name('dashboard');
 
 
 Route::post('administrator-login', [UserController::class, 'login'])->name('administrator-login');
