@@ -35,22 +35,21 @@
                                     <th scope="col">Numéro permis</th>
                                     <th scope="col">Téléphone</th>
                                     <th scope="col">Actions</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($drivers as $key => $driver)
+                                @foreach ($owners as $key => $owner)
                                     <tr>
                                         <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $driver->name }}</td>
-                                        <td>{{ $driver->birthDate }}</td>
-                                        <td>{{ $driver->birthPlace }}</td>
-                                        <td>{{ $driver->permis }}</td>
-                                        <td>{{ $driver->phoneNumber }}</td>
+                                        <td>{{ $owner->name }}</td>
+                                        <td>{{ $owner->birthDate }}</td>
+                                        <td>{{ $owner->birthPlace }}</td>
+                                        <td>{{ $owner->permis }}</td>
+                                        <td>{{ $owner->phoneNumber }}</td>
                                         <td class="d-flex">
-                                            <a href="{{ route('driver-edit', $driver) }}" title="modifier" class="btn"><i
+                                            <a href="{{ route('owner-edit', $owner) }}" title="modifier" class="btn"><i
                                                     class="fa-solid fa-pen-to-square"></i></a>
-                                            <a href="{{ route('driver-info', $driver) }}" title="modifier" class="btn"><i
+                                            <a href="{{ route('owner-info', $owner) }}" title="modifier" class="btn"><i
                                                     class="fa-solid fa-info-circle"></i></a>
                                         </td>
                                     </tr>

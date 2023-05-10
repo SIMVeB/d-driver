@@ -48,12 +48,31 @@ Route::post('owner-update/{id}', [OwnerController::class, 'update'])->name('owne
 
 Route::post('driver-store', [DriverController::class, 'store'])->name('driver-store');
 
+
+
 Route::post('news-letter-store', [NewsLetterController::class, 'store'])->name('news-letter-store');
 
 
 Route::middleware(['auth'])->group(function () {
     Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
+
     Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
+    Route::post('driver-update/{id}', [DriverController::class, 'update'])->name('driver-update');
+    Route::get('driver-info/{id}', [DriverController::class, 'show'])->name('driver-info');
+    Route::get('driver-edit', [DriverController::class, 'edit'])->name('driver-edit');
+
+    Route::get('owner-list', [OwnerController::class, 'index'])->name('owner-list');
+    Route::post('owner-modify/{id}', [OwnerController::class, 'modify'])->name('owner-modify');
+    Route::get('owner-info/{id}', [OwnerController::class, 'show'])->name('owner-info');
+    Route::get('owner-edit', [OwnerController::class, 'edit'])->name('owner-edit');
+
+
+    Route::get('vehicle-list', [VehicleController::class, 'index'])->name('vehicle-list');
+    Route::post('vehicle-modify/{id}', [VehicleController::class, 'modify'])->name('vehicle-modify');
+    Route::get('vehicle-info/{id}', [VehicleController::class, 'show'])->name('vehicle-info');
+    Route::get('vehicle-edit', [VehicleController::class, 'edit'])->name('vehicle-edit');
+
+
 
     Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
     Route::get('faqs/{faq}', [FaqController::class, 'edit'])->name('faqs.edit');

@@ -80,9 +80,12 @@ class DriverController extends Controller
      * @param  \App\Models\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function show(Driver $driver)
+    public function show( $id)
     {
-        return view('drivers.detail', compact('driver', ));
+        $driver = Driver::find($id);
+        $vehicles= Vehicle::where("driver_id", $driver->id)->get();
+
+        return view('layouts.driver-info', compact('driver', 'vehicles'));
 
     }
 
@@ -104,11 +107,11 @@ class DriverController extends Controller
      * @param  \App\Models\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Driver $driver)
+    public function update(Request $request, $id)
     {
         $data= $request->validate([
         'name'=> 'required|string',
-        'gender'=> 'required|boolean',
+        'gender'=> 'required|string',
         'birthDate'=> 'required|date',
         'birthPlace'=> 'required|string',
         'email'=> 'required|email',
@@ -121,23 +124,15 @@ class DriverController extends Controller
         'village'=> 'required|string',
         'commune'=> 'required|string',
         'region'=> 'required|string',
-        'permis'=> 'required|string',
-
+        'permis'=> 'required|string'
         ]);
-
-        $vehicle = Vehicle::find($data["vehicle_id"]);
-
-        $owner = Owner::create($data);
-
-        $vehicle->owner_id = $owner->id ;
-
-        $vehicle->save();
 
         $driver = Driver::find($id);
 
-        $driver->update($request);
+        $driver->update($data);
+                toast( "Conducteur mise à jour avec succès", 'success');
 
-        return redirect()->route('drivers.index')->with('success', 'Drivers enregistrée avec succès');
+        return redirect()->back();
     }
 
     /**

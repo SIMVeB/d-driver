@@ -36,7 +36,7 @@ class Vehicle extends Model
         'type',
     ];
 
-    public function owner(): BelongsTo
+    public function owner()
     {
         return $this->belongsTo(Owner::class);
     }
