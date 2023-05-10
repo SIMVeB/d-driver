@@ -19,7 +19,7 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::all();
-        return view('vehicles.index', compact('vehicles'));
+        return view('layouts.vehicle-list', compact('vehicles'));
     }
 
     /**
@@ -75,9 +75,10 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show( $id)
     {
-        return view('vehicles.detail', compact('vehicle', ));
+        $vehicle = Vehicle::find($id);
+        return view('layouts.vehicle-info', compact('vehicle', ));
     }
 
 
@@ -101,7 +102,9 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        return view('vehicles.edit', compact('vehicle'));
+                $vehicle = Vehicle::find($id);
+
+        return view('layouts.vehicle-info', compact('vehicle'));
     }
 
     /**
@@ -146,6 +149,38 @@ class VehicleController extends Controller
         }
         Session::put('vehicle', $vehicle);
         return redirect()->route('owner')->with($result);
+    }
+
+    public function modify(Request $request, $id)
+    {
+        $data= $request->validate([
+        'genre'=> 'required|string',
+        'manufacturer'=> 'required|string',
+        'chassis'=> 'required|string',
+        'bodywork'=> 'required|string',
+        'serialNumber'=> 'required|string',
+        'bodyworkColor'=> 'required|string',
+        'energy'=> 'required|string',
+        'sitePlace'=> 'required|integer',
+        'vin'=> 'required|string',
+        'type'=> 'required|string',
+        'usageState'=> 'required|string',
+        'power'=> 'required|string',
+        'registrationDate'=> 'required|date',
+        'circulationDate'=> 'required|date',
+        'firstUseDate'=> 'required|date',
+        'glassType'=> 'required|string',
+        'frontShape'=> 'required|string',
+        'backShape'=> 'required|string',
+        'airConditioner'=> 'required|string',
+        ]);
+
+        $vehicle = Vehicle::find($id);
+        $vehicle->update($data);
+
+        toast('Véhicule mise à jour avec succès','success');
+
+        return redirect()->back();
     }
 
     /**

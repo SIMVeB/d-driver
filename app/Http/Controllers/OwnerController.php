@@ -20,7 +20,7 @@ class OwnerController extends Controller
     public function index()
     {
         $owners = Owner::all();
-        return view('owners.index', compact('owners'));
+        return view('layouts.owner-list', compact('owners'));
     }
 
     /**
@@ -83,9 +83,13 @@ class OwnerController extends Controller
      * @param  \App\Models\Owner  $owner
      * @return \Illuminate\Http\Response
      */
-    public function show(Owner $owner)
+    public function show( $id)
     {
-        return view('owners.detail', compact('owner', ));
+        $owner = Owner::find($id);
+        $vehicles= Vehicle::where("owner_id", $owner->id)->get();
+
+        return view('layouts.owner-info', compact('owner', 'vehicles'));
+
     }
 
 
@@ -146,13 +150,44 @@ class OwnerController extends Controller
 
         $owner = Owner::find($id);
 
-        $owner->update($request);
+        $owner->update($data);
 
         $vehicle =  Session::get('vehicle');
         Session::put('owner', $owner);
 
         toast('Propriétaire mise à jour avec succès','success');
         return redirect()->route('owner')->with(['vehicle' => $vehicle, 'owner' => $owner]);
+
+    }
+
+    public function modify(Request $request, $id)
+    {
+    $data= $request->validate([
+    'name'=> 'required|string',
+    'gender'=> 'required|string',
+    'birthDate'=> 'required|date',
+    'birthPlace'=> 'required|string',
+    'profession'=> 'required|string',
+    'personality'=> 'required|string',
+    'email'=> 'required|email',
+    'phoneNumber'=> 'required|string',
+    'passport'=> 'required|string',
+    'zip'=> 'required|string',
+    'nif'=> 'required|string',
+    'address'=> 'required|string',
+    'village'=> 'required|string',
+    'commune'=> 'required|string',
+    'region'=> 'required|string',
+    'district'=> 'required|string'
+    ]);
+
+
+    $owner = Owner::find($id);
+
+    $owner->update($data);
+
+    toast('Propriétaire mise à jour avec succès','success');
+    return redirect()->back();
 
     }
 
