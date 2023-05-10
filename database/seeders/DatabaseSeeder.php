@@ -15,12 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        
         $user = User::create([
-            'name' => "Toundji",
-            'email' =>"admin@vdriver.com",
+            'name' => "SODJINOU Amour",
+            'email' =>"amour@vdriver.com",
             'email_verified_at' => now(),
-            'password' => "123456789", // password
-            'remember_token' => "1223456",
+            'password' => "00000000", // password
+            'remember_token' => "1234567",
         ]);
         // \App\Models\User::factory(10)->create();
     }
