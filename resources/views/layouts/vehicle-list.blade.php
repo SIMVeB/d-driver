@@ -32,7 +32,6 @@
                                         <td>{{ $vehicle->genre }}</td>
                                         <td>{{ $vehicle->type }}</td>
                                         <td>{{ $vehicle->chassis }}</td>
-                                        <td>{{ $vehicle->driver == null ? '' : $vehicle->driver->name }}</td>
                                         <td>
                                             {{ $vehicle->owner == null ? '' : $vehicle->owner->name }}
                                             <br>

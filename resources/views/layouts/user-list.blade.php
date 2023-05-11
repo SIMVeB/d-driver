@@ -11,7 +11,7 @@
 
                 <div class="d-flex justify-content-end mb-2">
                     <a href="{{ route('administrator-register') }}" class="v-driver-btn-outline-primary">Nouveau <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
+                            class="fa-solid fa-plus"></i></a>
                 </div>
 
                 <div class="row content">
