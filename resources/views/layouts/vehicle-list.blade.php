@@ -1,26 +1,12 @@
-@extends('master')
-@section('content')
-    <!-- ======= Side Section ======= -->
-    <section id="side" class="d-flex align-items-center ">
-        <div class="container">
-            <div class="row">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">ACCUEIL</a></li>
-                        <li class="breadcrumb-item active text-white" aria-current="page">CONDUCTEURS</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </section><!-- End Side -->
-
+@extends('admin')
+@section('admin-content')
     <main id="main">
         <!-- ======= Form Section ======= -->
         <section id="form" class="form">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h3>Liste des conducteurs</h3>
+                    <h3>Liste des véhicules</h3>
                 </div>
 
                 <div class="row content">

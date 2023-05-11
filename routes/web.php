@@ -27,9 +27,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('owner', function () { return view('layouts.owner'); })->name('owner');
 Route::get('driver', function () { return view('layouts.driver'); })->name('driver');
-Route::get('faq', function () { return view('layouts.faq'); })->name('faq');
 Route::get('login', function () { return view('layouts.login'); })->name('admin-login');
-Route::get('dashboard', function () { return view('layouts.dashboard'); })->name('dashboard');
 
 
 Route::post('administrator-login', [UserController::class, 'login'])->name('administrator-login');
@@ -55,6 +53,12 @@ Route::post('news-letter-store', [NewsLetterController::class, 'store'])->name('
 
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('dashboard', function () { return view('layouts.dashboard'); })->name('dashboard');
+
+
+
+
     Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
 
     Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
@@ -74,12 +78,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('vehicle-edit', [VehicleController::class, 'edit'])->name('vehicle-edit');
 
 
-
+    Route::get('faq', function () { return view('layouts.faq'); })->name('faq');
     Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
     Route::get('faqs/{faq}', [FaqController::class, 'edit'])->name('faqs.edit');
     Route::post('faqs/{faq}', [FaqController::class, 'update'])->name('faqs.update');
     Route::get('faqs/delete/{faq}', [FaqController::class, 'destroy'])->name('faqs.delete');
     Route::post('faq-store', [FaqController::class, 'store'])->name('faq-store');
+
+    Route::get('administrator-register', [UserController::class, 'create'])->name('administrator-register');
+    Route::post('administrator-register', [UserController::class, 'store'])->name('administrator-register');
+    Route::get('users', [UserController::class, 'index'])->name('users');
+    Route::get('user-edit', [UserController::class, 'edit'])->name('user-edit');
 
 
 });

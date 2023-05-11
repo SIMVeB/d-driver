@@ -7,22 +7,8 @@ if (!isset($driver)) {
 
 ?>
 
-@extends('master')
-@section('content')
-    <!-- ======= Side Section ======= -->
-    <section id="side" class="d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">ACCUEIL</a></li>
-                        <li class="breadcrumb-item active text-white" aria-current="page">INSCRIPTION</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </section><!-- End Side -->
-
+@extends('admin')
+@section('admin-content')
     <main id="main">
         <!-- ======= Form Section ======= -->
         <section id="form" class="form">
