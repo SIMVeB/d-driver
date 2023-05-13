@@ -1,10 +1,10 @@
 :root {
-  --v-driver-primary: #9B824F;
+  --v-driver-primary: #247283;
   --v-driver-primary-light: #9b824f26;
-  --v-driver-primary-dark: #715B2E;
+  --v-driver-primary-dark: #221D75;
   --v-driver-dark: rgba(0, 0, 0, 0.67);
   --v-driver-gray: rgba(255, 255, 255, 0.723);
-  --v-driver-primary-gradient: linear-gradient(101.12deg, #9B824F 52.16%, rgba(155, 130, 79, 0) 100.97%);;
+  --v-driver-primary-gradient: linear-gradient(101.12deg, #247283 52.16%, rgba(155, 130, 79, 0) 100.97%);;
 }
 
 .v-driver-primary {
