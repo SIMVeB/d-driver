@@ -16,7 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('layouts.user-list', compact('users'));
+
     }
 
     /**
@@ -26,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.user-form');
     }
 
     /**
@@ -37,7 +39,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data= $request->validate([
+        'name' => 'required|string',
+        'role' => 'string',
+        'email' => 'required|email',
+        'password' => 'required|min:8',
+        ]);
+
+        User::create($data);
+
+        return redirect()->intended('users');
     }
 
 
