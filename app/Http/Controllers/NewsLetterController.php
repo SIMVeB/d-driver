@@ -18,6 +18,20 @@ class NewsLetterController extends Controller
         return view('layouts.news-letter-list', compact('newsLetters'));
     }
 
+    public function indexFiltering(Request $request){
+        $filter = $request->query('filter');
+        if (!empty($filter)) {
+        $newsLetters = NewsLetter::sortable()
+            ->where('email', 'like', '%'.$filter.'%')
+            ->orWhere('status', 'like', '%'.$filter.'%')
+            ->orWhere('created_at', 'like', '%'.$filter.'%')
+            ->paginate(3);
+        } else {
+            $newsLetters = NewsLetter::sortable()->paginate(3);
+        }
+        return view('layouts.news-letter-list', compact('newsLetters', 'filter'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

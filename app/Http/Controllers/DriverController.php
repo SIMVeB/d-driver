@@ -27,13 +27,13 @@ class DriverController extends Controller
 
         if (!empty($filter)) {
             $drivers = Driver::sortable()
-            ->where('name', 'like', '%'.$filter.'%')
-            ->orWhere('birthDate', 'like', '%'.$filter.'%')
-            ->orWhere('birthPlace', 'like', '%'.$filter.'%')
-            ->orWhere('phoneNumber', 'like', '%'.$filter.'%')
-            ->orWhere('permis', 'like', '%'.$filter.'%')
-            ->orWhere('created_at', 'like', '%'.$filter.'%')
-            ->paginate(3);
+                ->where('name', 'like', '%'.$filter.'%')
+                ->orWhere('birthDate', 'like', '%'.$filter.'%')
+                ->orWhere('birthPlace', 'like', '%'.$filter.'%')
+                ->orWhere('phoneNumber', 'like', '%'.$filter.'%')
+                ->orWhere('permis', 'like', '%'.$filter.'%')
+                ->orWhere('created_at', 'like', '%'.$filter.'%')
+                ->paginate(3);
         } else {
             $drivers = Driver::sortable()->paginate(3);
         }
