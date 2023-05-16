@@ -70,7 +70,7 @@
                                                 class="fa-solid fa-chevron-up icon-close"></i></a>
                                         <div id="faq-list-{{ $key }}" class="collapse" data-bs-parent=".faq-list">
                                             <p>
-                                                {{ $faq->answer }}
+                                                {{ $faq->answer }} 
                                             </p>
                                         </div>
                                     </li>
