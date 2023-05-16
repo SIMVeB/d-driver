@@ -23,7 +23,7 @@ if (!isset($filter)) {
                                     @csrf
                                     <input type="text" name="filter" placeholder="Rechercher ici ..."
                                         value="{{ $filter }}">
-                                        <i role="button" class='fa-solid fa-search'></i>
+                                        <button type="submit" ><i role="button" class='fa-solid fa-search'></i></button>
                                 </div>
                             </form>
                         </div>

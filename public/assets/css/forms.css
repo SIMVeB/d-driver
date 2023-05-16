@@ -18,6 +18,11 @@ form .form-control:focus {
   form .search input{
     border: 0px solid white;
   }
+  
+  form .search button{
+    border: 0px solid white;
+    background: white;
+  }
 
 
   .pagination {
