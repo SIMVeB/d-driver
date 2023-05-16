@@ -4,10 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
+
 
 class Driver extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
+
+    public $sortable = [
+    'name',
+    'birthDate',
+    'birthPlace',
+    'phoneNumber',
+    'permis',
+    "created_at",
+    ];
 
     protected $fillable = [
         'name',

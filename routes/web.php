@@ -65,6 +65,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('driver-update/{id}', [DriverController::class, 'update'])->name('driver-update');
     Route::get('driver-info/{id}', [DriverController::class, 'show'])->name('driver-info');
     Route::get('driver-edit', [DriverController::class, 'edit'])->name('driver-edit');
+    Route::get('drivers-index-filtering', [DriverController::class, 'indexFiltering'])->name('drivers-index-filtering');
 
     Route::get('owner-list', [OwnerController::class, 'index'])->name('owner-list');
     Route::post('owner-modify/{id}', [OwnerController::class, 'modify'])->name('owner-modify');
@@ -84,6 +85,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('faqs/{faq}', [FaqController::class, 'update'])->name('faqs.update');
     Route::get('faqs/delete/{faq}', [FaqController::class, 'destroy'])->name('faqs.delete');
     Route::post('faq-store', [FaqController::class, 'store'])->name('faq-store');
+    Route::get('faqs-index-filtering', [FaqController::class, 'indexFiltering'])->name('faqs-index-filtering');
+
 
     Route::get('administrator-register', [UserController::class, 'create'])->name('administrator-register');
     Route::post('administrator-register', [UserController::class, 'store'])->name('administrator-register');

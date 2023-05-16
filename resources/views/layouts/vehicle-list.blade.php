@@ -15,52 +15,62 @@
                             <thead>
                                 <tr class="table-secondary">
                                     <th scope="col">#</th>
-                                    <th scope="col">Marque</th>
-                                    <th scope="col">Genre</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Chassis</th>
-                                    <th scope="col">Propriétaire</th>
-                                    <th scope="col">Conducteur</th>
+                                    <th scope="col">@sortablelink('manufacturer', 'Marque')</th>
+                                    <th scope="col">@sortablelink('genre', 'Genre')</th>
+                                    <th scope="col">@sortablelink('type', 'Type')</th>
+                                    <th scope="col">@sortablelink('chassis', 'Chassis')</th>
+                                    <th scope="col">@sortablelink('owner.name', 'Propriétaire')</th>
+                                    <th scope="col">@sortablelink('driver.name', 'Conducteur')</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($vehicles as $key => $vehicle)
+                                @if (!empty($vehicles) && $vehicles->count())
+                                    @foreach ($vehicles as $key => $vehicle)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $vehicle->manufacturer }}</td>
+                                            <td>{{ $vehicle->genre }}</td>
+                                            <td>{{ $vehicle->type }}</td>
+                                            <td>{{ $vehicle->chassis }}</td>
+                                            <td>
+                                                {{ $vehicle->owner == null ? '' : $vehicle->owner->name }}
+                                                <br>
+                                                {{ $vehicle->owner == null ? '' : $vehicle->owner->email }}
+
+                                                @if ($vehicle->owner != null && $vehicle->owner->email != null && $vehicle->owner->phoneNumber != null)
+                                                    /
+                                                @endif
+                                                {{ $vehicle->owner == null ? '' : $vehicle->owner->phoneNumber }}
+                                            </td>
+
+                                            <td>
+                                                {{ $vehicle->driver == null ? '' : $vehicle->driver->name }}
+                                                <br>
+                                                {{ $vehicle->driver == null ? '' : $vehicle->driver->email }}
+
+                                                @if ($vehicle->driver != null && $vehicle->driver->email != null && $vehicle->owner->phoneNumber != null)
+                                                    /
+                                                @endif
+                                                {{ $vehicle->driver == null ? '' : $vehicle->driver->phoneNumber }}
+                                            </td>
+                                            <td class="d-flex">
+                                                <a href="{{ route('vehicle-info', $vehicle) }}" title="modifier"
+                                                    class="btn"><i class="fa-solid fa-info-circle"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
                                     <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $vehicle->manufacturer }}</td>
-                                        <td>{{ $vehicle->genre }}</td>
-                                        <td>{{ $vehicle->type }}</td>
-                                        <td>{{ $vehicle->chassis }}</td>
-                                        <td>
-                                            {{ $vehicle->owner == null ? '' : $vehicle->owner->name }}
-                                            <br>
-                                            {{ $vehicle->owner == null ? '' : $vehicle->owner->email }}
-
-                                            @if ($vehicle->owner != null && $vehicle->owner->email != null && $vehicle->owner->phoneNumber != null)
-                                                /
-                                            @endif
-                                            {{ $vehicle->owner == null ? '' : $vehicle->owner->phoneNumber }}
-                                        </td>
-
-                                        <td>
-                                            {{ $vehicle->driver == null ? '' : $vehicle->driver->name }}
-                                            <br>
-                                            {{ $vehicle->driver == null ? '' : $vehicle->driver->email }}
-
-                                            @if ($vehicle->driver != null && $vehicle->driver->email != null && $vehicle->owner->phoneNumber != null)
-                                                /
-                                            @endif
-                                            {{ $vehicle->driver == null ? '' : $vehicle->driver->phoneNumber }}
-                                        </td>
-                                        <td class="d-flex">
-                                            <a href="{{ route('vehicle-info', $vehicle) }}" title="modifier"
-                                                class="btn"><i class="fa-solid fa-info-circle"></i></a>
-                                        </td>
+                                        <td colspan="8">Aucun enrégistrement trouvé</td>
                                     </tr>
-                                @endforeach
+                                @endif
                             </tbody>
                         </table>
+
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        {!! $vehicles->appends(Request::except('page'))->render() !!}
                     </div>
                 </div>
 

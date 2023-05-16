@@ -15,7 +15,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faqs = Faq::all();
+        $faqs = Faq::sortable()->paginate(3);
         return view('layouts.faqs-list', compact('faqs'));
     }
 
@@ -27,8 +27,26 @@ class FaqController extends Controller
     */
     public function home()
     {
-        $faqs = Faq::all();
+        $faqs = Faq::paginate(5);
         return view('layouts.index', compact('faqs'));
+    }
+
+
+    public function indexFiltering(Request $request)
+    {
+        $filter = $request->query('filter');
+
+        if (!empty($filter)) {
+            $faqs = Faq::sortable()
+                ->where('quiz', 'like', '%'.$filter.'%')
+                ->orWhere('created_at', 'like', '%'.$filter.'%')
+                ->orWhere('answer', 'like', '%'.$filter.'%')
+                ->paginate(3);
+        } else {
+            $faqs = Faq::sortable()->paginate(5);
+        }
+
+        return view('layouts.faqs-list', compact('faqs', 'filter'));
     }
 
     /**

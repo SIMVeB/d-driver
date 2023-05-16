@@ -19,7 +19,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owners = Owner::all();
+        $owners = Owner::sortable()->paginate(3);
         return view('layouts.owner-list', compact('owners'));
     }
 
