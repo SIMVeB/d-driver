@@ -31,8 +31,8 @@ class VehicleController extends Controller
                 ->orWhere('genre', 'like', '%'.$filter.'%')
                 ->orWhere('type', 'like', '%'.$filter.'%')
                 ->orWhere('chassis', 'like', '%'.$filter.'%')
-                // ->orWhere('owner.name', 'like', '%'.$filter.'%')
-                // ->orWhere('driver.name', 'like', '%'.$filter.'%')
+                // ->orWhere('owner_name', 'like', '%'.$filter.'%')
+                // ->orWhere('driver_name', 'like', '%'.$filter.'%')
                 ->orWhere('created_at', 'like', '%'.$filter.'%')
                 ->paginate(3);
         } else {

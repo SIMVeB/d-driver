@@ -18,12 +18,18 @@ if (!isset($filter)) {
 
                 <div class="row content">
                     <div class="col-lg-6 mb-2">
-                        <form method="GET" class="form-inline" action="{{ route('owners-index-filtering') }}">
-                            @csrf
-                            <input type="text" name="filter" placeholder="Rechercher ici ..."
-                                value="{{ $filter }}">
-                            <input type="submit" value="Rechercher">
-                        </form>
+                        <div class="form-control">
+                            <form method="GET" class="form-inline" action="{{ route('owners-index-filtering') }}">
+                                @csrf
+                                <div class="search">
+                                    @csrf
+                                    <input type="text" name="filter" placeholder="Rechercher ici ..."
+                                        value="{{ $filter }}">
+                                    <button type="submit"><i role="button" class='fa-solid fa-search'></i></button>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped">

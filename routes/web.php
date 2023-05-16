@@ -60,7 +60,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
-    Route::get('newsletters-index-filtering', [DriverController::class,'indexFiltering'])->name('newsletters-index-filtering');
+    Route::get('newsletters-index-filtering',
+    [NewsLetterController::class,'indexFiltering'])->name('newsletters-index-filtering');
 
     Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
     Route::post('driver-update/{id}', [DriverController::class, 'update'])->name('driver-update');

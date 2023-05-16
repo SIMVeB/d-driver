@@ -22,8 +22,8 @@ class NewsLetterController extends Controller
         $filter = $request->query('filter');
         if (!empty($filter)) {
         $newsLetters = NewsLetter::sortable()
+
             ->where('email', 'like', '%'.$filter.'%')
-            ->orWhere('status', 'like', '%'.$filter.'%')
             ->orWhere('created_at', 'like', '%'.$filter.'%')
             ->paginate(3);
         } else {
