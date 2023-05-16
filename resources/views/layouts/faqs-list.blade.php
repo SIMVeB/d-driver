@@ -16,16 +16,20 @@ if (!isset($filter)) {
                 </div>
 
                 <div class="row content">
-                    <div class="col-lg-6">
-                        <form method="GET" class="form-inline" action="{{ route('faqs-index-filtering') }}">
-                            @csrf
-                            <input type="text" name="filter" placeholder="Rechercher ici ..."
-                                value="{{ $filter }}">
-                            <input type="submit" value="Rechercher">
-                        </form>
+                    <div class="col-md-3">
+                        <div class="form-control">
+                            <form method="GET" class="form-inline" action="{{ route('faqs-index-filtering') }}">
+                                <div class="search">
+                                    @csrf
+                                    <input type="text" name="filter" placeholder="Rechercher ici ..."
+                                        value="{{ $filter }}">
+                                        <i role="button" class='fa-solid fa-search'></i>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
-                    <div class="col-md-6 mb-3 text-end">
+                    <div class="col mb-3 text-end">
 
                         <a href="{{ route('faq') }}#form" class="btn btn-light">AJOUTER UNE QUESTION <i
                                 class="fa-solid fa-plus"></i></a>
