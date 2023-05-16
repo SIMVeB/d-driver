@@ -1,3 +1,9 @@
+<?php
+if (!isset($filter)) {
+    $filter = Session::get('filter');
+}
+?>
+
 @extends('admin')
 @section('admin-content')
     <main id="main">
@@ -10,6 +16,14 @@
                 </div>
 
                 <div class="row content">
+                    <div class="col-lg-6 mb-2">
+                        <form method="GET" class="form-inline" action="{{ route('vehicles-index-filtering') }}">
+                            @csrf
+                            <input type="text" name="filter" placeholder="Rechercher ici ..."
+                                value="{{ $filter }}">
+                            <input type="submit" value="Rechercher">
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>

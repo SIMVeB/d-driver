@@ -21,6 +21,23 @@ class UserController extends Controller
 
     }
 
+
+    public function indexFiltering(Request $request){
+        $filter = $request->query('filter');
+        if (!empty($filter)) {
+            $users = User::sortable()
+                ->where('name', 'like', '%'.$filter.'%')
+                ->orWhere('email', 'like', '%'.$filter.'%')
+                ->orWhere('role', 'like', '%'.$filter.'%')
+                ->orWhere('created_at', 'like', '%'.$filter.'%')
+                ->paginate(3);
+        } else {
+            $users = User::sortable()->paginate(3);
+        }
+        return view('layouts.user-list', compact('users', 'filter'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

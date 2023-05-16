@@ -23,6 +23,24 @@ class OwnerController extends Controller
         return view('layouts.owner-list', compact('owners'));
     }
 
+    public function indexFiltering(Request $request){
+        $filter = $request->query('filter');
+        if (!empty($filter)) {
+            $owners = Owner::sortable()
+                ->where('name', 'like', '%'.$filter.'%')
+                ->orWhere('birthDate', 'like', '%'.$filter.'%')
+                ->orWhere('birthPlace', 'like', '%'.$filter.'%')
+                ->orWhere('email', 'like', '%'.$filter.'%')
+                ->orWhere('phoneNumber', 'like', '%'.$filter.'%')
+                ->orWhere('created_at', 'like', '%'.$filter.'%')
+                ->paginate(3);
+        } else {
+            $owners = Owner::sortable()->paginate(3);
+        }
+        return view('layouts.owner-list', compact('owners', 'filter'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

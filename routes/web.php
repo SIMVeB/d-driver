@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('news-letters', [NewsLetterController::class, 'index'])->name('news-letters');
+    Route::get('newsletters-index-filtering', [DriverController::class,'indexFiltering'])->name('newsletters-index-filtering');
 
     Route::get('drivers', [DriverController::class, 'index'])->name('drivers-list');
     Route::post('driver-update/{id}', [DriverController::class, 'update'])->name('driver-update');
@@ -71,12 +72,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('owner-modify/{id}', [OwnerController::class, 'modify'])->name('owner-modify');
     Route::get('owner-info/{id}', [OwnerController::class, 'show'])->name('owner-info');
     Route::get('owner-edit', [OwnerController::class, 'edit'])->name('owner-edit');
+    Route::get('owners-index-filtering', [OwnerController::class, 'indexFiltering'])->name('owners-index-filtering');
 
 
     Route::get('vehicle-list', [VehicleController::class, 'index'])->name('vehicle-list');
     Route::post('vehicle-modify/{id}', [VehicleController::class, 'modify'])->name('vehicle-modify');
     Route::get('vehicle-info/{id}', [VehicleController::class, 'show'])->name('vehicle-info');
     Route::get('vehicle-edit', [VehicleController::class, 'edit'])->name('vehicle-edit');
+    Route::get('vehicles-index-filtering',[VehicleController::class,'indexFiltering'])->name('vehicles-index-filtering');
+
 
 
     Route::get('faq', function () { return view('layouts.faq'); })->name('faq');
@@ -92,6 +96,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('administrator-register', [UserController::class, 'store'])->name('administrator-register');
     Route::get('users', [UserController::class, 'index'])->name('users');
     Route::get('user-edit', [UserController::class, 'edit'])->name('user-edit');
+    Route::get('users-index-filtering', [UserController::class, 'indexFiltering'])->name('users-index-filtering');
 
 
 });
