@@ -18,7 +18,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::all();
+        $vehicles = Vehicle::sortable()->paginate(3);
         return view('layouts.vehicle-list', compact('vehicles'));
     }
 

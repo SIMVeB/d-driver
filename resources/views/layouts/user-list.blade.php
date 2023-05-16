@@ -20,28 +20,38 @@
                             <thead>
                                 <tr class="table-secondary">
                                     <th scope="col">#</th>
-                                    <th scope="col">Nom & Prénom</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Role</th>
+                                    <th scope="col">@sortablelink('name', 'Nom & Prénom') </th>
+                                    <th scope="col">@sortablelink('email', 'Email') </th>
+                                    <th scope="col">@sortablelink('role', 'Role') </th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $key => $user)
-                                    <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->role }}</td>
-                                        <td class="d-flex">
-                                            <a href="{{ route('user-edit', $user) }}" title="modifier" class="btn"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                @if (!empty($users) && $users->count())
+                                    @foreach ($users as $key => $user)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->role }}</td>
+                                            <td class="d-flex">
+                                                <a href="{{ route('user-edit', $user) }}" title="modifier" class="btn"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
 
-                                        </td>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="5">Aucun enrégistrement trouvé</td>
                                     </tr>
-                                @endforeach
+                                @endif
                             </tbody>
                         </table>
+
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        {!! $users->appends(Request::except('page'))->render() !!}
                     </div>
                 </div>
 

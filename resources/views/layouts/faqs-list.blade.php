@@ -1,3 +1,9 @@
+<?php
+if (!isset($filter)) {
+    $filter = Session::get('filter');
+}
+?>
+
 @extends('admin')
 @section('admin-content')
     <main id="main">
@@ -10,7 +16,17 @@
                 </div>
 
                 <div class="row content">
-                    <div class="col mb-3 text-end">
+                    <div class="col-lg-6">
+                        <form method="GET" class="form-inline" action="{{ route('faqs-index-filtering') }}">
+                            @csrf
+                            <input type="text" name="filter" placeholder="Rechercher ici ..."
+                                value="{{ $filter }}">
+                            <input type="submit" value="Rechercher">
+                        </form>
+                    </div>
+
+                    <div class="col-md-6 mb-3 text-end">
+
                         <a href="{{ route('faq') }}#form" class="btn btn-light">AJOUTER UNE QUESTION <i
                                 class="fa-solid fa-plus"></i></a>
                     </div>
@@ -19,27 +35,48 @@
                             <thead>
                                 <tr class="table-secondary">
                                     <th scope="col">#</th>
-                                    <th scope="col">Question</th>
-                                    <th scope="col">Réponse</th>
+                                    <th scope="col">@sortablelink('quiz', 'Question') </th>
+                                    <th scope="col">@sortablelink('answer', 'Réponse')</th>
+                                    <th scope="col">@sortablelink('status', 'Status')</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($faqs as $key => $faq)
+                                @if (!empty($faqs) && $faqs->count())
+                                    @foreach ($faqs as $key => $faq)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $faq->quiz }}</td>
+                                            <td>{{ $faq->answer }}</td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    @if ($faq->status == true || $faq->status == 1 || $faq->status == '1')
+                                                        <span class="v-driver-primary">Affichée</span>
+                                                    @else
+                                                        <span class="text-danger">Expirée</span>
+                                                    @endif
+
+                                                </div>
+                                            </td>
+                                            <td class="d-flex">
+                                                <a href="{{ route('faqs.edit', $faq) }}" title="modifier" class="btn"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="{{ route('faqs.delete', $faq) }}" type="submit" title="supprimer"
+                                                    class="btn text-danger"><i class="fa-solid fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
                                     <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $faq->quiz }}</td>
-                                        <td>{{ $faq->answer }}</td>
-                                        <td class="d-flex">
-                                            <a href="{{ route('faqs.edit', $faq) }}" title="modifier" class="btn"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
-                                            <a href="{{ route('faqs.delete', $faq) }}" type="submit" title="supprimer"
-                                                class="btn text-danger"><i class="fa-solid fa-trash"></i></a>
-                                        </td>
+                                        <td colspan="5">Aucun enrégistrement trouvé</td>
                                     </tr>
-                                @endforeach
+                                @endif
                             </tbody>
                         </table>
+
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        {!! $faqs->appends(Request::except('page'))->render() !!}
                     </div>
                 </div>
 

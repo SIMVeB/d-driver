@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::sortable()->paginate(3);
         return view('layouts.user-list', compact('users'));
 
     }

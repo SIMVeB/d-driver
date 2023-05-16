@@ -14,7 +14,7 @@ class NewsLetterController extends Controller
      */
     public function index()
     {
-        $newsLetters = NewsLetter::all();
+        $newsLetters = NewsLetter::sortable()->paginate(3);
         return view('layouts.news-letter-list', compact('newsLetters'));
     }
 

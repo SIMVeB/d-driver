@@ -15,8 +15,30 @@ class DriverController extends Controller
      */
     public function index()
     {
-        $drivers = Driver::all();
+        $drivers = Driver::sortable()->paginate(3);
         return view('layouts.drivers-list', compact('drivers'));
+    }
+
+
+    public function indexFiltering(Request $request)
+    {
+        $filter = $request->query('filter');
+
+
+        if (!empty($filter)) {
+            $drivers = Driver::sortable()
+            ->where('name', 'like', '%'.$filter.'%')
+            ->orWhere('birthDate', 'like', '%'.$filter.'%')
+            ->orWhere('birthPlace', 'like', '%'.$filter.'%')
+            ->orWhere('phoneNumber', 'like', '%'.$filter.'%')
+            ->orWhere('permis', 'like', '%'.$filter.'%')
+            ->orWhere('created_at', 'like', '%'.$filter.'%')
+            ->paginate(3);
+        } else {
+            $drivers = Driver::sortable()->paginate(3);
+        }
+
+        return view('layouts.drivers-list', compact('drivers', 'filter'));
     }
 
     /**

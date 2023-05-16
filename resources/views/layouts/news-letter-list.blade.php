@@ -18,23 +18,30 @@
                             <thead>
                                 <tr class="table-secondary">
                                     <th scope="col">#</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Date</th>
-
+                                    <th scope="col">@sortablelink('email', 'Email') </th>
+                                    <th scope="col">@sortablelink('created_at', 'Date') </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($newsLetters as $key => $email)
+                                @if (!empty($newsLetters) && $newsLetters->count())
+                                    @foreach ($newsLetters as $key => $email)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $email->email }}</td>
+                                            <td>{{ $email->created_at }}</td>
+                                        </tr>
+                                    @endforeach
+                                @else
                                     <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $email->email }}</td>
-                                        <td>{{ $email->created_at }}</td>
+                                        <td colspan="3">Aucun enrégistrement trouvé</td>
                                     </tr>
-                                @endforeach
-
+                                @endif
 
                             </tbody>
                         </table>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        {!! $newsLetters->appends(Request::except('page'))->render() !!}
                     </div>
                 </div>
 
