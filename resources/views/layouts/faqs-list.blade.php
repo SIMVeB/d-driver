@@ -6,6 +6,7 @@ if (!isset($filter)) {
 
 @extends('admin')
 @section('admin-content')
+    
     <main id="main">
         <!-- ======= Form Section ======= -->
         <section id="form" class="form">
@@ -21,9 +22,9 @@ if (!isset($filter)) {
                             <form method="GET" class="form-inline" action="{{ route('faqs-index-filtering') }}">
                                 <div class="search">
                                     @csrf
-                                    <input type="text" name="filter" placeholder="Rechercher ici ..."
+                                    <input type="text" name="filter" id="filterField" placeholder="Rechercher ici ..."
                                         value="{{ $filter }}">
-                                        <button type="submit" ><i role="button" class='fa-solid fa-search'></i></button>
+                                    <button type="submit"><i role="button" class='fa-solid fa-search'></i></button>
                                 </div>
                             </form>
                         </div>
@@ -87,4 +88,5 @@ if (!isset($filter)) {
             </div>
         </section><!-- End Form Section -->
     </main><!-- End #main -->
+
 @endsection

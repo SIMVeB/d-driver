@@ -31,9 +31,17 @@ class VehicleController extends Controller
                 ->orWhere('genre', 'like', '%'.$filter.'%')
                 ->orWhere('type', 'like', '%'.$filter.'%')
                 ->orWhere('chassis', 'like', '%'.$filter.'%')
-                // ->orWhere('owner_name', 'like', '%'.$filter.'%')
-                // ->orWhere('driver_name', 'like', '%'.$filter.'%')
-                ->orWhere('created_at', 'like', '%'.$filter.'%')
+                ->orWhereHas('owner', function ($query) use($filter) {
+                    $query->where('name', 'like', '%'.$filter.'%')
+                    ->orWhere('email', 'like', '%'.$filter.'%')
+                    ->orWhere('phoneNumber', 'like', '%'.$filter.'%');
+                 })
+                 ->orWhereHas('driver', function ($query) use($filter) {
+                    $query->where('name', 'like', '%'.$filter.'%')
+                    ->orWhere('email', 'like', '%'.$filter.'%')
+                    ->orWhere('phoneNumber', 'like', '%'.$filter.'%');
+                 })
+                // ->orWhere('created_at', 'like', '%'.$filter.'%')
                 ->paginate(3);
         } else {
             $vehicles = Vehicle::sortable()->paginate(3);
